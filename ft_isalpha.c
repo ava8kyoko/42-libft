@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:48:24 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/12 12:59:20 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/12 13:38:29 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int		ft_isalpha(int c)
 ** 	return (0);
 ** }
 */
-
 
 /*
 ** int     ft_isalpha(int c)

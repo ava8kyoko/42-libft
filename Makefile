@@ -6,7 +6,7 @@
 #    By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 09:53:46 by mchampag          #+#    #+#              #
-#    Updated: 2021/05/12 12:42:46 by mchampag         ###   ########.fr        #
+#    Updated: 2021/05/12 13:38:25 by mchampag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ all: $(NAME)
 $(NAME):
 	$(CC)	$(FLAGS)	$(SRCS)
 	$(AR)	$(NAME)		$(OBJS)
-
 
 clean:
 	rm -f $(OBJS)
