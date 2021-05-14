@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:48:24 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/13 13:53:10 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/14 15:22:12 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 
 int		ft_isalpha(int c)
 {
- 	if (ft_isupper(c) || ft_islower(c))
+ 	if (ft_toupper(c) || ft_tolower(c))
  		return (1);
  	return (0);
 }
