@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:56:27 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/12 13:02:20 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/13 13:54:42 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,11 @@
 ** 			paramètres régionaux C par défaut.
 */
 
-
 #include "libft.h"
 
 int		ft_isascii(int c)
 {
-	return(c >= 0 && c <= 127);
+	if (0 <= c && c <= 127)
+		return(1);
+	return (0);
 }
-
-/*
-** int		ft_isascii(int c)
-** {
-** 	if (c >= 0 && c <= 127)
-** 		return(1);
-** 	return (0);
-** }
-*/

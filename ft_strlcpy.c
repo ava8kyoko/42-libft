@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:58:17 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/12 11:11:02 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/14 00:53:10 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,57 @@
 ** 		It does not pad out the result like strncpy does.
 */
 
-#include 'libft.h'
+/*
+** Doit copier le plus de caractères possible de la source dans
+** la destination. dstsize = longueur maximale de la destination.
+** Contrairement à strncpy, elle doit garantir que le terminateur soit toujours
+** écrit dans la destination, autrement dit, si la source est trop longue,
+** il sera en position dest[dstsize - 1], sinon la destination sera une simple copie
+** de la source. Retourne la longueur de la source.
+** https://forums.commentcamarche.net/forum/affich-34997365-ecrire-fonction-strlcpy
+*/
 
-size_t		ft_strlcpy(char *dest , const char *src , size_t  size );
+#include "libft.h"
+
+
+size_t		ft_strlcpy(char *dest, const char *src, size_t dstsize)
 {
+	size_t srcsize;
 
+	srcsize = ft_strlen(src);
+	if (srcsize < dstsize)
+	{
+		ft_strncpy(dest, src, srcsize);
+	}
+	else if (dstsize != 0)
+	{
+		ft_strncpy(dest, src, dstsize - 1);
+		dest[dstsize - 1] = '\0';
+	}
+	return (srcsize);
 }
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	unsigned int	i;
+
+	i = 0;
+	if (!dst || !src)
+		return (0);
+	if (size > 0)
+	{
+		while (--size && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	while (src[i])
+		i++;
+	return (i);
+}
+
+
+
+

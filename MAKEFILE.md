@@ -1,13 +1,3 @@
-# libft
-
-
-Programme pour tester:
-https://github.com/jtoty/Libftest
-bash grademe.sh
-
-GNU make
-https://www.gnu.org/software/make/manual/make.html
-
 
 Makefile et règles
 https://www.youtube.com/watch?v=-riHEHGP2DU Make - écrire un Makefile

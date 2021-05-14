@@ -3,34 +3,31 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+         #
+#    By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 09:53:46 by mchampag          #+#    #+#              #
-#    Updated: 2021/05/12 13:38:25 by mchampag         ###   ########.fr        #
+#    Updated: 2021/05/13 13:53:28 by kyoko            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		libft.a
 
-CC =		gcc -c
+CC =		gcc
 
-FLAGS = 	-Wall -Wextra -Werror
+CFLAGS = 	-Wall -Wextra -Werror
 
-AR = 		ar -rc
+SRC = 		$(wildcard *.c)
 
-SRCS = 		ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c\
-			ft_memchr.c ft_memcmp.c ft_strlen.c ft_isalpha.c ft_isdigit.c\
-			ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c\
-			ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strlcpy.c ft_strlcpy.c\
-			ft_strlcat.c ft_strnstr.c ft_atoi.c\
+OBJ = 		$(SRCS:.c=.o)
 
-OBJS = 		${SRCS:.c=.o}
+$(NAME): $(OBJ)
+		ar rc $(NAME) $(OBJ)
+# ranlib $(NAME)
+
+# %.o: %.c
+#$(CC) -I. -o $@ -c $? $(CFLAGS)
 
 all: $(NAME)
-
-$(NAME):
-	$(CC)	$(FLAGS)	$(SRCS)
-	$(AR)	$(NAME)		$(OBJS)
 
 clean:
 	rm -f $(OBJS)
@@ -39,3 +36,5 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: clean fclean all re

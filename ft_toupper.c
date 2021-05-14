@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 13:19:35 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/11 15:48:32 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/13 14:14:48 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,16 @@
 
 int		ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c -= 32);
+	if (ft_tolower(c))
+		return (c - 32);
 	return (c);
 }
+
+/*
+** int		ft_toupper(int c)
+** {
+** 	if ('a' <= c && c <= 'z')
+** 		return (c - 32);
+** 	return (c);
+** }
+*/

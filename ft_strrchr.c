@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:44:48 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/12 10:48:56 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/14 00:53:26 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 ** 	SVr4, BSD 4.3, C89 et C99
 */
 
-#include 'libft.h'
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:48:24 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/12 13:38:29 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/13 13:53:10 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,15 @@
 
 int		ft_isalpha(int c)
 {
-	return (ft_isupper(c) || ft_islower(c));
+ 	if (ft_isupper(c) || ft_islower(c))
+ 		return (1);
+ 	return (0);
 }
-
-/*
-** int		ft_isalpha(int c)
-** {
-** 	if (ft_isupper(c) || ft_islower(c))
-** 		return (1);
-** 	return (0);
-** }
-*/
 
 /*
 ** int     ft_isalpha(int c)
 ** {
-**     if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+**     if (('A' <= c && c <= 'Z') || ('a' <= && c <= 'z'))
 **         return (1);
 **     return (0);
 ** }
