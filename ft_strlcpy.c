@@ -3,13 +3,146 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:58:17 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/14 15:03:39 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/15 00:22:26 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+strlcpy(), strlcat()
+	size-bounded string copying and concatenation
+Description
+	The strlcpy() and strlcat() functions copy and concatenate strings 
+	respectively. They are designed to be safer, more consistent, and 
+	less error prone replacements for strncpy(3) and strncat(3). Unlike 
+	those functions, strlcpy() and strlcat() take the full size of the 
+	buffer (not just the length) and guarantee to NUL-terminate the 
+	result (as long as size is larger than 0 or, in the case of strlcat(), 
+	as long as there is at least one byte free in dst). Note that a byte 
+	for the NUL should be included in size. Also note that strlcpy() and 
+	strlcat() only operate on true ''C'' strings. This means that for 
+	strlcpy() src must be NUL-terminated and for strlcat() both src and 
+	dst must be NUL-terminated.
+
+strlcpy() 
+	Copies up to size - 1 characters from the NUL-terminated string src
+	to dst, NUL-terminating the result.
+
+Return Values
+	The strlcpy() and strlcat() functions return the total length of 
+	the string they tried to create. For strlcpy() that means the length 
+	of src.
+https://linux.die.net/man/3/strlcpy
+*/
+
+#include "libft.h"
+
+size_t		ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t i;
+
+	i = 0;
+	if (!src || !dst)
+		return (0);
+	while (i < (size - 1))
+	{
+		if (src[i] != '\0')
+			dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(*src));
+}
+
+/*
+size_t		ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t i;
+
+	i = 0;
+	if (!src || !dst)
+		return (0);
+	while (src[i] != '\0' && i < (size - 1))
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src[]));
+}
+*/
+/*
+size_t		ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t i;
+
+	i = 0;
+	if (!src || !dst)
+		return (0);
+	if (i < size)
+	{
+		while (src[i] != '\0')
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (ft_strlen(*src));
+}
+*/
+int		main(void)
+{
+	char	dst[] = "Bateau";
+	const char *src = "AL";
+	size_t size = 3;
+
+	printf("%s", dst);
+	return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 /*
 ** À VÉRIFIER !!!
 ** strlcpy()
@@ -48,26 +181,47 @@
 ** https://linux.die.net/man/3/strlcpy
 ** https://man.archlinux.org/man/strcpy.3.fr
 */
-
+/*
 #include "libft.h"
 
-static char		*ft_strncpy(char *dest, const char *src, size_t n)
+char		*ft_strncpy(char *dest, const char *src, size_t n)
 {
 	size_t i;
 
 	i = 0;
-	while (i < n && src[i] != '\0')
-	{
-		dest[i] = src [i];
-		i++;
-	}
 	while (i < n)
 	{
+		while (src[i] != '\0')
+		{
+			dest[i] = src [i];
+			i++;
+		}
 		dest[i] = '\0';
 		i++;
 	}
 	return (dest);
 }
+
+#include "libft.h"
+
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t i;
+
+	i = 0;
+	if (i < dstsize)
+		dst[i] = '\0';
+		i++;
+	else if (dstsize != 0)
+	{
+		ft_strncpy(dst, src, dstsize - 1);
+		dst[dstsize - 1] = '\0';
+	}
+	return (ft_strlen(src));
+}
+
+
+
 
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
@@ -75,14 +229,37 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 	srcsize = ft_strlen(src);
 	if (srcsize < dstsize)
-		ft_strncpy(dest, src, srcsize);
+		ft_strncpy(dst, src, srcsize);
 	else if (dstsize != 0)
 	{
-		ft_strncpy(dest, src, dstsize - 1);
-		dest[dstsize - 1] = '\0';
+		ft_strncpy(dst, src, dstsize - 1);
+		dst[dstsize - 1] = '\0';
 	}
 	return (srcsize);
 }
+
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	unsigned int	i;
+
+	i = 0;
+	if (!dst || !src)
+		return (0);
+	if (size > 0)
+	{
+		while (--size && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	while (src[i])
+		i++;
+	return (i);
+}
+
 
 char		*ft_strlcpy(char *dest, const char *src, size_t n)
 {
@@ -101,7 +278,7 @@ char		*ft_strlcpy(char *dest, const char *src, size_t n)
 	}
 	return (dest);
 }
-
+*/
 /*
 ** Fonction extra
 */
@@ -140,34 +317,3 @@ VALEUR RENVOYÉE
 http://manpages.ubuntu.com/manpages/bionic/fr/man3/strcpy.3.html
 https://man.archlinux.org/man/strcpy.3.fr
 */
-
-
-
-
-
-
-/*
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (!dst || !src)
-		return (0);
-	if (size > 0)
-	{
-		while (--size && src[i])
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	while (src[i])
-		i++;
-	return (i);
-}
-*/
-
-
-
