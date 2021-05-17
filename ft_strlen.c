@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:37:07 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/14 23:59:55 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/16 23:29:23 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ size_t		ft_strlen(const char *s)
 ** int		main(void)
 ** {
 ** 	char	str[] = "Je me couche vraiment trop tard.";
-** 	int		len = ft_strlen(str);
+** 	int	len = ft_strlen(str);
 ** 	printf("La longueur de la chaine est %d.\n", len);
 ** 	return 0;
 ** }
 */
+
