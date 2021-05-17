@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:37:07 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/16 23:29:23 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/17 11:58:11 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,20 @@ size_t		ft_strlen(const char *s)
 }
 
 /*
-** int		main(void)
-** {
-** 	char	str[] = "Je me couche vraiment trop tard.";
-** 	int	len = ft_strlen(str);
-** 	printf("La longueur de la chaine est %d.\n", len);
-** 	return 0;
-** }
+size_t		ft_strlen(const char *s)
+{
+	while (*s != '\0')
+		s++;
+	return (s);
+}
 */
 
+/*
+int		main(void)
+{
+	char	str[] = "Je me couche vraiment trop tard.";
+	int	len = ft_strlen(str);
+	printf("La longueur de la chaine est %d.\n", len);
+	return 0;
+}
+*/

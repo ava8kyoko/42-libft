@@ -6,7 +6,7 @@
 #    By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 09:53:46 by mchampag          #+#    #+#              #
-#    Updated: 2021/05/14 15:21:38 by mchampag         ###   ########.fr        #
+#    Updated: 2021/05/17 14:08:57 by mchampag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,13 @@ CC =		gcc
 
 CFLAGS = 	-Wall -Wextra -Werror
 
+# TARGET =
+
 # SRCS = 		$(wildcard *.c)
 
 SRCS =		ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c\
 			ft_tolower.c ft_toupper.c\
+			ft_strchr.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strrchr.c\
 
 OBJS = 		$(SRCS:.c=.o)
 

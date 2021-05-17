@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:44:48 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/16 23:44:35 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/17 13:25:48 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,21 @@ char	*ft_strrchr(const char *s, int c)
 {
     size_t len;
 
-    len = strlen(s);
+    len = ft_strlen(s);
     while (len--)
         if (*(len + s) == c)
             return((char *)(len + s));
     return (NULL);
 }
+
 /*
-while (*s != c)
-	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
-	}
-	return ((char *)s);
-*/
-
-
 int     main(void)
 {
+    printf("%s\n", ft_strrchr("banane", 'a'));
     printf("%s\n", ft_strrchr("banane", '0'));
     return (0);
 }
-
+*/
 
 
 
