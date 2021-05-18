@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:37:07 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/17 11:58:11 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/17 23:30:40 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,31 +28,12 @@
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
 		i++;
 	return (i);
 }
-
-/*
-size_t		ft_strlen(const char *s)
-{
-	while (*s != '\0')
-		s++;
-	return (s);
-}
-*/
-
-/*
-int		main(void)
-{
-	char	str[] = "Je me couche vraiment trop tard.";
-	int	len = ft_strlen(str);
-	printf("La longueur de la chaine est %d.\n", len);
-	return 0;
-}
-*/

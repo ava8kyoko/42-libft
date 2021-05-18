@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+         #
+#    By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 09:53:46 by mchampag          #+#    #+#              #
-#    Updated: 2021/05/17 14:08:57 by mchampag         ###   ########.fr        #
+#    Updated: 2021/05/17 22:04:26 by kyoko            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,8 @@ all: $(NAME)
 
 clean:
 	rm -f $(OBJS)
+
+allclean: all clean
 
 fclean: clean
 	rm -rf $(NAME)

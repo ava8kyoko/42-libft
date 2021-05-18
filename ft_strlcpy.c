@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:58:17 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/17 12:57:28 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/17 23:32:02 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size)
 	i = 0;
 	if (!*src || !*dst)
 		return (0);
+	if (size == 0)
+		return (ft_strlen(src));
 	printf("Valeur départ destination : %s\n", dst);
 	printf("Valeur source : %s\n", src);
 	while (src[i] != '\0' && i < (size - 1))
@@ -58,6 +60,7 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size)
 	return (ft_strlen(src));
 }
 
+/*
 int		main(void)
 {
 	char dst[] = "1";
@@ -68,6 +71,7 @@ int		main(void)
 	printf("La longueur de la chaine est %lu.\n", len);
 	return (0);
 }
+*/
 
-//NOTE: AFFICHER LES CARACTÈRES NON-IMPRIMABLES
+// NOTE: AFFICHER LES CARACTÈRES NON-IMPRIMABLES
 // AJOUTER IF src == 0 return (strlen(src))

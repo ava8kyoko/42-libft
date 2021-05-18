@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 13:19:35 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/13 14:14:48 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/17 22:57:35 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,18 @@
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	if (ft_tolower(c))
+	if ('a' <= c && c <= 'z')
 		return (c - 32);
 	return (c);
 }
 
 /*
-** int		ft_toupper(int c)
+** int     ft_toupper(int c)
 ** {
-** 	if ('a' <= c && c <= 'z')
-** 		return (c - 32);
-** 	return (c);
+**     if (isupper(c))
+**         return (c - 32);
+**     return (c);
 ** }
 */

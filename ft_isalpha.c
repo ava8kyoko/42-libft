@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:48:24 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/14 15:22:12 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/17 22:55:52 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
- 	if (ft_toupper(c) || ft_tolower(c))
- 		return (1);
- 	return (0);
+	if (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'))
+		return (1);
+	return (0);
 }
 
 /*
 ** int     ft_isalpha(int c)
 ** {
-**     if (('A' <= c && c <= 'Z') || ('a' <= && c <= 'z'))
+**     if (isupper(c) || islower(c))
 **         return (1);
 **     return (0);
 ** }
