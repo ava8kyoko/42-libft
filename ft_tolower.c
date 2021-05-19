@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 13:25:35 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/17 22:56:54 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/18 11:04:34 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_tolower(int c)
 /*
 ** int     ft_tolower(int c)
 ** {
-**     if (islower(c))
+**     if (ft_isupper(c))
 **         return (c + 32);
 **     return (c);
 ** }

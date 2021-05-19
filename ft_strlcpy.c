@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:58:17 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/17 23:32:02 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/18 14:11:19 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,39 +39,43 @@ https://linux.die.net/man/3/strlcpy
 
 #include "libft.h"
 
-size_t		ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!*src || !*dst)
 		return (0);
 	if (size == 0)
 		return (ft_strlen(src));
-	printf("Valeur départ destination : %s\n", dst);
-	printf("Valeur source : %s\n", src);
 	while (src[i] != '\0' && i < (size - 1))
 	{
 		dst[i] = src[i];
 		i++;
 	}
 	dst[i] = '\0';
-	printf("Valeur finale destination : %s\n", dst);
 	return (ft_strlen(src));
 }
 
 /*
-int		main(void)
-{
-	char dst[] = "1";
-	//const char src[] = "56";
-	//size_t size = 1;
-
-	size_t	len = ft_strlcpy(dst, "ABCD", 10);
-	printf("La longueur de la chaine est %lu.\n", len);
-	return (0);
-}
+** size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+** {
+** 	size_t i;
+** 
+** 	i = 0;
+** 	if (!*src || !*dst)
+** 		return (0);
+** 	if (size == 0)
+** 		return (ft_strlen(src));
+** 	printf("Valeur départ destination : %s\n", dst);
+** 	printf("Valeur source : %s\n", src);
+** 	while (src[i] != '\0' && i < (size - 1))
+** 	{
+** 		dst[i] = src[i];
+** 		i++;
+** 	}
+** 	dst[i] = '\0';
+** 	printf("Valeur finale destination : %s\n", dst);
+** 	return (ft_strlen(src));
+** }
 */
-
-// NOTE: AFFICHER LES CARACTÈRES NON-IMPRIMABLES
-// AJOUTER IF src == 0 return (strlen(src))

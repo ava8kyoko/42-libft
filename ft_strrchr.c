@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:44:48 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/17 13:25:48 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/18 15:13:50 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,48 +28,33 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-    size_t len;
+	size_t	len;
 
-    len = ft_strlen(s);
-    while (len--)
-        if (*(len + s) == c)
-            return((char *)(len + s));
-    return (NULL);
+	len = ft_strlen(s);
+	while (len--)
+	{
+		if (*(len + s) == c)
+			return ((char *)(len + s));
+	}
+	return (NULL);
 }
 
 /*
-int     main(void)
-{
-    printf("%s\n", ft_strrchr("banane", 'a'));
-    printf("%s\n", ft_strrchr("banane", '0'));
-    return (0);
-}
+** char *ft_strrchr(const char *s, int c)
+** {
+**   const char *found;
+**   const char *p;
+** 
+**   c = (size_t) c;
+** 
+**   if (c == '\0')
+**     return ft_strchr(s, '\0');
+**   found = NULL;
+**   while ((p = ft_strchr(s, c)) != NULL)
+**     {
+**       found = p;
+**       s = p + 1;
+**     }
+**   return ((char *) found);
+** }
 */
-
-
-
-
-
-
-
-
-/*
-char *ft_strrchr(const char *s, int c)
-{
-  const char *found;
-  const char *p;
-
-  c = (size_t) c;
-
-  if (c == '\0')
-    return ft_strchr(s, '\0');
-  found = NULL;
-  while ((p = ft_strchr(s, c)) != NULL)
-    {
-      found = p;
-      s = p + 1;
-    }
-  return ((char *) found);
-}
-*/
-

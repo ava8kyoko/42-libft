@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:39:13 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/17 23:32:05 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/18 10:03:52 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return ((char *)s);
 }
-
-/*
-int	main(void)
-{
-	printf("%s\n", ft_strchr("patate", 't'));
-	printf("%s\n", ft_strchr("patate", '0'));
-	return (0);
-}
-*/
