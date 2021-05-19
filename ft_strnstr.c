@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 11:19:26 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/18 17:54:04 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/19 15:40:24 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,79 +34,30 @@ RETURN VALUES
 
 #include "libft.h"
 
-/*
-char	*ft_strnstr(const char *big, const char *little, size_t len)
-{
-	unsigned int	n;
-	size_t			len_little;
-
-	if (*little == '\0')
-		return (char*)(big);
-	n = 0;
-	len_little = ft_strlen(little);
-	while (*big != '\0')
-	{
-		if (n + len_little > len)
-			return (NULL);
-		if (ft_strncmp(big, little, len_little) == 0)
-			return (char*)(big);
-		big++;
-		n++;
-	}
-	return (NULL);
-}
-*/
-
-
-
-
 char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
-	size_t	len_s2;
-	int		diff_s1_s2;
+	size_t	i;
+	size_t	k;
+	char	*new_s1;
 
-	len_s2 = ft_strlen(s2);
-	diff_s1_s2 = ft_strncmp(s1, s2, len_s2);
-	if (len_s2 == 0)
+	i = 0;
+	k = 0;
+	new_s1 = "x";
+	if (!*s2)
 		return ((char *)s1);
-	while (*s1 != '\0' || len_s2 < len)
+	if (!*s1 || len != 0)
 	{
-		s1++;
-		len_s2++;
-	}
+		while (s1[i] != '\0' && s1[i] != s2[0])
+			i++;
+		while (s1[i] == s2[k])
+		{
+			new_s1[k] = s1[i];
+			if (ft_strlen(new_s1) == ft_strlen(s2)
+				|| (ft_strlen(s2) > len && ft_strlen(new_s1) == len))
+				return ((char *)(s1));
+			i++;
+			k++;
+		}
+	}		
 	return (NULL);
 }
-
-
-int	main(void)
-{
-	printf("%s\n", ft_strnstr("abcd", "1234", 8));
-
-	return (0);
-}
-
-
-/*
-{
-	while(*s )
-	{
-		if (s2 == '\0')
-			return (s1);
-	}
-	return (ft_strchr(*s1, (int)s2[1]));
-
-	return (NULL);
-}
-
-
-char	*ft_strchr(const char *s, int c)
-{
-	while (*s != c)
-	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
-	}
-	return ((char *)s);
-}
-*/

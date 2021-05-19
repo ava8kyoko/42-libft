@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:37:52 by kyoko             #+#    #+#             */
-/*   Updated: 2021/05/18 11:02:23 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/19 15:41:11 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,42 +161,119 @@ int     main(void)
 ** ft_strncmp
 */
 
+/*
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+ 	printf("%s %s\n", (char *)s1, (char *)s2);
+	i = 0;
+	if (n == 0 || (!*s1 || !*s2) || s1[0] != s2[0])
+		return (0);
+	while (s1[i] == s2[i] && i <= (n - 1))
+	{	
+		printf("%ld\n", i);
+		i++;
+	}
+	return (ft_strlen(s1) - ft_strlen(s2));
+}
+*/
+
 int		main(void)
 {
 	char str1[] = "ABCDE";
-	char str2[] = "123456";
-	int result1 = ft_strncmp(str1, str2, 6);
-	printf("%d\n", result1);
+	char str2[] = "ABCDE";
+	int result1 = ft_strncmp(str1, str2, 5);
+	printf("len_s1 - len_s2 : %d\n\n", result1);
 
 	char str3[] = "ABCDE";
-	char str4[] = "1234";
-	int result2 = ft_strncmp(str3, str4, 4);
-	printf("%d\n", result2);
+	char str4[] = "12345";
+	int result2 = ft_strncmp(str3, str4, 5);
+	printf("len_s1 - len_s2 : %d\n\n", result2);
 
 	char str5[] = "ABCDE";
-	char str6[] = "12345";
+	char str6[] = "AB";
 	int result3 = ft_strncmp(str5, str6, 5);
-	printf("%d\n", result3);
+	printf("len_s1 - len_s2 : %d\n\n", result3);
 
-	char str7[] = "ABCDE";
-	char str8[] = "123456";
-	int result4 = ft_strncmp(str7, str8, 0);
-	printf("%d\n", result4);
+	char str7[] = "ABC";
+	char str8[] = "ABCDE";
+	int result4 = ft_strncmp(str7, str8, 5);
+	printf("len_s1 - len_s2 : %d\n\n", result4);
 
 	char str9[] = "ABCDE";
-	char str10[] = "123456";
+	char str10[] = "ABCDE";
 	int result5 = ft_strncmp(str9, str10, 3);
-	printf("%d\n", result5);
+	printf("len_s1 - len_s2 : %d\n\n", result5);
 
 	char str11[] = "\0";
-	char str12[] = "123456";
-	int result6 = ft_strncmp(str11, str12, 3);
-	printf("%d\n", result6);
+	char str12[] = "S1vide";
+	int result6 = ft_strncmp(str11, str12, 5);
+	printf("len_s1 - len_s2 : %d\n\n", result6);
 
-	char str13[] = "ABCDE";
+	char str13[] = "S2vide";
 	char str14[] = "\0";
-	int result7 = ft_strncmp(str13, str14, 2);
-	printf("%d\n", result7);
+	int result7 = ft_strncmp(str13, str14, 5);
+	printf("len_s1 - len_s2 : %d\n\n", result7);
+
+	char str15[] = "ABCDE";
+	char str16[] = "ABCDE";
+	int result8 = ft_strncmp(str15, str16, 10);
+	printf("len_s1 - len_s2 : %d\n\n", result8);
+
+	return (0);
+}
+
+/*
+** ft_strnstr
+*/
+
+/*
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+{
+	size_t	i;
+	size_t	k;
+	char	new_s1[] = "x";
+	//char	*new_s1;
+
+	i = 0;
+	k = 0;
+	//new_s1 = "x";
+	printf("i : %ld\n", i);
+	printf("k : %ld\n", i);
+	if (!*s2)
+		return ((char *)s1);
+	if (!*s1 || len != 0)
+	{
+		while (s1[i] != '\0' && s1[i] != s2[0])
+		{
+			i++;
+			printf("i : %ld\n", i);
+		}
+		while (s1[i] == s2[k])			
+		{
+			new_s1[k] = s1[i];
+			printf("%s\n", new_s1);
+			if (ft_strlen(new_s1) == ft_strlen(s2) || 
+					(ft_strlen(s2) > len && ft_strlen(new_s1) == len))
+				return ((char *)(s1));
+			i++;
+			printf("i : %ld\n", i);
+			k++;
+			printf("K : %ld\n", k);
+		}
+	}		
+	return (NULL);
+}
+*/
+
+int	main(void)
+{
+	printf("%s\n\n", ft_strnstr("ABCD", "CD", 2));
+	printf("%s\n\n", ft_strnstr("ABCD", "EF", 2));
+	printf("%s\n\n", ft_strnstr("ABCD", "CD", 3));
+	printf("%s\n\n", ft_strnstr("ABCD", "CD", 1));
+	printf("%s\n\n", ft_strnstr("AB", "ABCD", 4));
+	printf("%s\n\n", ft_strnstr("AB", "ABCD", 2));
 
 	return (0);
 }
