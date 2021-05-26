@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:39:13 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/25 23:43:33 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/26 12:18:00 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,31 +28,41 @@
 
 #include "libft.h"
 
+
+char    *ft_strchr(const char *s, int c)
+{
+    while (*s != '\0' && *s != c)
+        s++;
+    if (*s == c)
+        return ((char *)s);
+	return (NULL);
+}
+
+
+int    main(void)
+{
+    printf("%s\n", ft_strchr("patate", 'p'));
+    printf("%s\n", ft_strchr("patate", 't'));
+    printf("%s\n", ft_strchr("patate", 'h'));
+    return (0);
+}
+
+/*
 char	*ft_strchr(const char *s, int c)
 {
 	char	*new_s;
 
 	new_s = (char *)s;
-	printf("%s\n", new_s);
-	while (*new_s != '\0' && *new_s != (char) c) 
-	{
-		printf("1\n");
-		printf("%s\n", new_s);
-		*new_s++;
-	}
-    if (*new_s == (char) c) 
+	while (*new_s != '\0' && *new_s != (char) c)
+		new_s++;
+    if (*new_s == (char) c)
         return (char *)new_s;
 	else
-    	return ("NULL");
+    	return (NULL);
 }
+*/
 
-int	main(void)
-{
-	printf("%s\n", ft_strchr("patate", 'p'));
-	printf("%s\n", ft_strchr("patate", 't'));
-	printf("%s\n", ft_strchr("patate", 'h'));
-	return (0);
-}
+
 
 
 
@@ -64,7 +74,7 @@ int	main(void)
 	new_s = (char *)s;
 	i = 0;
 	printf("%s\n", s);
-	while (new_s[i] != c && new_s[i] != '\0')	
+	while (new_s[i] != c && new_s[i] != '\0')
 	{
 		if (new_s[i] == c)
 			return ((char *)(s + i));
@@ -73,3 +83,31 @@ int	main(void)
 	if (new_s[i] == '\0')
 		return (NULL);
 		*/
+/*
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s != '\0')
+	{
+		if ((unsigned char)*s == (unsigned char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (c == 0)
+		return ((char *)s);
+	return (NULL);
+}
+
+
+char	*ft_strchr(const char *s, int c)
+{
+	char	*new_s;
+
+	new_s = (char *)s;
+	while (*new_s != '\0' && *new_s != (char) c)
+		*new_s++;
+    if (*new_s == (char) c)
+        return (char *)new_s;
+	else
+    	return ("NULL");
+}
+*/

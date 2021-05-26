@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:37:52 by kyoko             #+#    #+#             */
-/*   Updated: 2021/05/25 15:44:05 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/26 12:38:41 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int		main(void)
 ** size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 ** {
 ** 	size_t i;
-** 
+**
 ** 	i = 0;
 ** 	if (!*src || !*dst)
 ** 		return (0);
@@ -161,11 +161,30 @@ int		main(void)
 /*
 ** ft_strchr
 */
+/*
+char	*ft_strchr(const char *s, int c)
+{
+	char	*new_s;
 
+	new_s = (char *)s;
+	printf("%s\n", new_s);
+	while (*new_s != '\0' && *new_s != (char) c)
+	{
+		printf("1\n");
+		printf("%s\n", new_s);
+		new_s++;
+	}
+    if (*new_s == (char) c)
+        return (char *)new_s;
+	else
+    	return (NULL);
+}
+*/
 int	main(void)
 {
+	printf("%s\n", ft_strchr("patate", 'p'));
 	printf("%s\n", ft_strchr("patate", 't'));
-	printf("%s\n", ft_strchr("patate", '0'));
+	printf("%s\n", ft_strchr("patate", 'h'));
 	return (0);
 }
 
@@ -262,7 +281,7 @@ int		main(void)
 	printf("%d\n", result11);
 	int resultk = ft_strncmp(str21, str22, 6);
 	printf("%d\n\n", resultk);
-	
+
 	return (0);
 }
 
@@ -292,11 +311,11 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 			i++;
 			printf("i : %ld\n", i);
 		}
-		while (s1[i] == s2[k])			
+		while (s1[i] == s2[k])
 		{
 			new_s1[k] = s1[i];
 			printf("%s\n", new_s1);
-			if (ft_strlen(new_s1) == ft_strlen(s2) || 
+			if (ft_strlen(new_s1) == ft_strlen(s2) ||
 					(ft_strlen(s2) > len && ft_strlen(new_s1) == len))
 				return ((char *)(s1));
 			i++;
@@ -304,14 +323,17 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 			k++;
 			printf("K : %ld\n", k);
 		}
-	}		
+	}
 	return (NULL);
 }
 */
 
 int	main(void)
 {
+	printf("%s\n\n", ft_strnstr("ABCD", "ABCD", 2));
 	printf("%s\n\n", ft_strnstr("ABCD", "CD", 5));
+	printf("%s\n\n", ft_strnstr("ABCD", "BC", 5));
+	printf("%s\n\n", ft_strnstr("ACCD", "CD", 5));
 	printf("%s\n\n", ft_strnstr("ABCD", "EF", 5));
 	printf("%s\n\n", ft_strnstr("ABCD", "CD", 3));
 	printf("%s\n\n", ft_strnstr("ABCD", "CD", 2));
@@ -324,3 +346,77 @@ int	main(void)
 
 	return (0);
 }
+
+/*
+char *ft_strnstr(const char *inside, const char *tofind, size_t len)
+{
+	size_t	i;
+	size_t	k;
+	size_t	len_tofind;
+	char	*new_inside;
+
+	i = 0;
+	k = 0;
+	new_inside = (char *) inside;
+	len_tofind = ft_strlen(tofind);
+	if (len_tofind > len)
+		return (NULL);
+	if (!*tofind || inside == tofind)
+		return (new_inside);
+	while (new_inside[i] != '\0' && i < len)
+	{
+		while (new_inside[i + k] != '\0' && tofind[k] != '\0'
+				&& new_inside[i + k] == tofind[k] && i + k < len)
+			k++;
+		if (k == len_tofind)
+			return (new_inside + i);
+		i++;
+	}
+	return (NULL);
+}
+*/
+
+
+
+
+
+/*
+char *ft_strnstr(const char *inside, const char *tofind, size_t len)
+{
+	char	*new_inside;
+	char	*str_chr;
+	char	new_str_chr;
+	int		str_cmp;
+	int		c_tofind;
+	size_t	len_tofind;
+
+	new_inside = (char *)inside;
+	len_tofind = ft_strlen(tofind);
+	printf("len: %ld\n", len_tofind);
+	c_tofind = tofind[0];
+	str_chr = ft_strchr(inside, c_tofind);
+	str_cmp = ft_strncmp(str_chr, tofind, len_tofind);
+
+
+	if (len_tofind > len)
+		return (NULL);
+	if (!*tofind)
+		return (new_inside);
+	printf("%s\n", str_chr);
+	while (str_chr != NULL)
+	{
+		printf("cmp: %d\n", str_cmp);
+		if (str_cmp == 0)
+			return (str_chr);
+		//if (str_cmp > 0)
+		else
+		{
+			str_chr++;
+			str_chr = ft_strchr(str_chr, c_tofind);
+			str_cmp = ft_strncmp(str_chr, tofind, len_tofind);
+		}
+		printf("%s+\n", str_chr);
+	}
+	return (NULL);
+}
+*/
