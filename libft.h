@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:12:56 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/18 15:12:42 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/24 14:03:34 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-size_t	ft_strlcat(char *dest, const char *src, size_t count);
-char	*ft_strnstr(const char *big, const char *little, size_t len);
+size_t	ft_strlcat(char *dest, const char *src, size_t destsize);
+char 	*ft_strnstr(const char	*big, const char *little, size_t len);
 int		ft_atoi(const char *nptr);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 

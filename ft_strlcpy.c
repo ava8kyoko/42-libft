@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:58:17 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/19 14:34:34 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/24 13:21:38 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[i] = '\0';
 	return (ft_strlen(src));
 }
-
-/*
-** size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-** {
-** 	size_t i;
-** 
-** 	i = 0;
-** 	if (!*src || !*dst)
-** 		return (0);
-** 	if (size == 0)
-** 		return (ft_strlen(src));
-** 	printf("Valeur départ destination : %s\n", dst);
-** 	printf("Valeur source : %s\n", src);
-** 	while (src[i] != '\0' && i < (size - 1))
-** 	{
-** 		dst[i] = src[i];
-** 		i++;
-** 	}
-** 	dst[i] = '\0';
-** 	printf("Valeur finale destination : %s\n", dst);
-** 	return (ft_strlen(src));
-** }
-*/

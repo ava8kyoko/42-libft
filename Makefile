@@ -6,7 +6,7 @@
 #    By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 09:53:46 by mchampag          #+#    #+#              #
-#    Updated: 2021/05/17 22:04:26 by kyoko            ###   ########.fr        #
+#    Updated: 2021/05/24 14:47:15 by kyoko            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ CFLAGS = 	-Wall -Wextra -Werror
 
 SRCS =		ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c\
 			ft_tolower.c ft_toupper.c\
-			ft_strchr.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strrchr.c\
+			ft_strchr.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c\
+			ft_strnstr.c ft_strrchr.c\
 
 OBJS = 		$(SRCS:.c=.o)
 

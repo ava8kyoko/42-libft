@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:39:13 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/18 10:03:52 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/25 23:43:33 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,46 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != c)
+	char	*new_s;
+
+	new_s = (char *)s;
+	printf("%s\n", new_s);
+	while (*new_s != '\0' && *new_s != (char) c) 
 	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
+		printf("1\n");
+		printf("%s\n", new_s);
+		*new_s++;
 	}
-	return ((char *)s);
+    if (*new_s == (char) c) 
+        return (char *)new_s;
+	else
+    	return ("NULL");
 }
+
+int	main(void)
+{
+	printf("%s\n", ft_strchr("patate", 'p'));
+	printf("%s\n", ft_strchr("patate", 't'));
+	printf("%s\n", ft_strchr("patate", 'h'));
+	return (0);
+}
+
+
+
+
+	/*
+	char	*new_s;
+	int		i;
+
+	new_s = (char *)s;
+	i = 0;
+	printf("%s\n", s);
+	while (new_s[i] != c && new_s[i] != '\0')	
+	{
+		if (new_s[i] == c)
+			return ((char *)(s + i));
+		i++;
+	}
+	if (new_s[i] == '\0')
+		return (NULL);
+		*/
