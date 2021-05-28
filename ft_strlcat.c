@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 11:11:35 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/26 15:26:54 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:12:10 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ if (strlcat(dst, src, dstsize) >= dstsize)
 
 #include "libft.h"
 
+/*
 size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
 {
      char       *d = dest;
@@ -90,7 +91,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
      size_t      n = destsize;
      size_t      dlen;
 	printf("%s\n", d);
-     /* Find the end of dst and adjust bytes left but don't go past end */
+
      while (n-- != 0 && *d != '\0')
 	 {
 		 d++;
@@ -121,8 +122,34 @@ size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
      }
      *d = '\0';
 
-     return (dlen + (s - src));  /* count does not include NUL */
+     return (dlen + (s - src)); 
  }
+*/
+
+size_t ft_strlcat(char *dst, const char *src, size_t dst_size)
+{
+	char	*new_dst;
+	size_t	dst_end;
+	size_t	dst_len;
+	size_t	src_len;
+	
+	new_dst = dst;
+	dst_len = ft_strlen(dst);
+	print
+	dst_end = dst_len;
+	src_len = ft_strlen(src);
+	/*while (*src != '\0')
+	{
+		new_dst[dst_end] = *src;
+		printf("%s", dst);
+		dst_end++;
+		src++;
+		if (dst_end == dst_size - 1)
+			break;
+	}*/
+	new_dst[dst_end] = '\0';
+	return (dst_len + src_len);
+}
 
 int		main(void)
 {
