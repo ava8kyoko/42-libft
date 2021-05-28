@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 11:11:35 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/27 16:12:10 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/05/28 16:36:38 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,42 +122,111 @@ size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
      }
      *d = '\0';
 
-     return (dlen + (s - src)); 
+     return (dlen + (s - src));
  }
 */
-
-size_t ft_strlcat(char *dst, const char *src, size_t dst_size)
+/*
+size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
 {
-	char	*new_dst;
-	size_t	dst_end;
+	//char 	*new_dst;
 	size_t	dst_len;
+	size_t	end;
 	size_t	src_len;
-	
-	new_dst = dst;
-	dst_len = ft_strlen(dst);
-	print
-	dst_end = dst_len;
+	//size_t	i;
+
+	//new_dst = dst;
+	//printf("new_dst: %s\n", new_dst);
+	dst_len = (ft_strlen(dst) + 1);
+	printf("dst_len: %zu\n", dst_len);
+	end = dst_len;
+	printf("end: %zu\n", end);
 	src_len = ft_strlen(src);
-	/*while (*src != '\0')
+	printf("src_len: %zu\n", src_len);
+	printf("src: %s\n", src);
+	//i = 0;
+	while (*src != '\0' && end != (dst_size - 1) && dst_size > 0)
 	{
-		new_dst[dst_end] = *src;
-		printf("%s", dst);
-		dst_end++;
-		src++;
-		if (dst_end == dst_size - 1)
-			break;
-	}*/
-	new_dst[dst_end] = '\0';
+		dst[end] = *src;
+		printf("new_dst: %s\n", dst);
+		i++;
+		end++;
+	}
+
+	dst[end] = '\0';
 	return (dst_len + src_len);
+}
+*/
+size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
+/*
+{
+    size_t    dst_len;
+    size_t    src_len;
+    size_t    end;
+
+    dst_len = ft_strlen(dst);
+    src_len = ft_strlen(src);
+    end = dst_len;
+    //if (dst_len > dst_size)
+        //return (dst_size + src_len);
+    //if (dst_size == 0)
+        //return (src_len);
+    //while (*src && *src != '\0' && end != (dst_size - 1) && dst_size > 0)
+	while(*src)
+    {
+        dst[end] = *src;
+		printf("dst: %s\n", dst);
+        end++;
+        src++;
+    }
+    dst[end] = '\0';
+    return (dst_len + src_len);
+}
+*/
+{
+	size_t i;
+	size_t j;
+
+	i = 0;
+	j = 0;
+	while (dst[i])
+	{
+		printf("dst: %s\n", dst);
+		i++;
+	}
+	if (dst_size < i)
+	{
+		while (src[j])
+			{
+				printf("src: %s\n", src);
+				j++;
+			}
+
+		return (dst_size + j);
+	}
+	while (dst_size > 0 && i < dst_size - 1 && src[j])
+		{
+			dst[i++] = src[j++];
+			printf("dst: %s\n", dst);
+		}
+
+	dst[i] = '\0';
+	printf("dst: %s\n", dst);
+	while (src[j++])
+	{
+		printf("src: %s\n", src);
+		i++;
+	}
+
+	return (i);
 }
 
 int		main(void)
 {
-	printf("%zu\n\n", ft_strlcat("abc", "def", 0));
+	printf("%zu\n\n", ft_strlcat("abc12345678", "BABABABA", 0));
 	printf("%zu\n\n", ft_strlcat("abc", "def", 1));
 	printf("%zu\n\n", ft_strlcat("abc", "def", 2));
-	printf("%zu\n\n", ft_strlcat("abc", "def", 3));
-	printf("%zu\n\n", ft_strlcat("abc", "def", 4));
+	//printf("%zu\n\n", ft_strlcat("abc", "def", 3));
+	//printf("%zu\n\n", ft_strlcat("abc", "def", 4));
 
 	return (0);
 }
