@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 11:11:35 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/28 16:36:38 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/31 14:07:48 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** Un tableau de char ou 'chaîne de caractères' est une suite de 'caractères'
-** suivi du caractère '\0' qui est  la fin de la chaîne.
-** La fonction strlen() retournera le nombre de caractères avant le '\0'.
-** Le tableau dst peut ne rien contenir au départ mais on lui a donné une
-** dimension.
-** Par exemple: char dst[100];
-** Si tu fais la concaténation de trop de chaînes, tu vas déborder
-** la dimension de dst.
-** Les tableaux ne sont pas 'élastiques' en C ...
-** sizeof(dst) est la limite que la fonction acceptera.
-** .........
-** L'utilisation de strlcat, et similaire à strcat : c'est de recoller
-** 2 chaines de caractères en 1, mais cette fois-ci qui contiendra
-** AU MAXIMUM taille caractères (il faut donc être certain de pouvoir
-** écrire autant de données à l'endroit de s1).
-** https://openclassrooms.com/forum/sujet/une-explication-precise-de-strlcat
 ** The strlcpy() and strlcat() functions copy and concatenate strings
 ** respectively. They are designed to be safer, more consistent, and
 ** less error prone replacements for strncpy(3) and strncat(3). Unlike
@@ -61,172 +45,23 @@
 alexandre.berube@servicesquebec.gouv.qc.ca
 */
 
-/*
-
-The strlcat() function appends at most (dstsize-strlen(dst)-1) characters
-of src to dst (dstsize being the size of the string buffer dst). If the
-string pointed to by dst contains a null-terminated string that fits into
-dstsize bytes when strlcat() is called, the string pointed to by dst will
-be a null-terminated string that fits in dstsize bytes (including the
-terminating null character) when it completes, and the initial character
-of src will override the null character at the end of dst. If the string
-ointed to by dst is longer than dstsize bytes when strlcat() is called,
-the string pointed to by dst will not be changed. The function returns
-min{dstsize,strlen(dst)}+ strlen(src). Buffer overflow can be checked as
-follows:
-
-if (strlcat(dst, src, dstsize) >= dstsize)
-        return −1;
-*/
-
-//dstsize - strlen(dst) - 1
-
 #include "libft.h"
 
-/*
-size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
-{
-     char       *d = dest;
-     const char *s = src;
-     size_t      n = destsize;
-     size_t      dlen;
-	printf("%s\n", d);
-
-     while (n-- != 0 && *d != '\0')
-	 {
-		 d++;
-		 printf("%s\n", d);
-	 }
-
-     dlen = d - dest;
-	 printf("dlen: %zu\n", dlen);
-     n = destsize - dlen;
-	 printf("n: %zu\n", n);
-
-     if (n == 0)
-         return (dlen + strlen(s));
-	printf("s: %s\n", s);
-     while (*s != '\0')
-     {
-		 printf("d: %s\n", d);
-         if (n != 1)
-         {
-
-             *d++ = *s;
-			 printf("d: %s\n", d);
-             n--;
-			 printf("n: %zu\n", n);
-         }
-         s++;
-		 printf("s: %s\n", s);
-     }
-     *d = '\0';
-
-     return (dlen + (s - src));
- }
-*/
-/*
-size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
-{
-	//char 	*new_dst;
-	size_t	dst_len;
-	size_t	end;
-	size_t	src_len;
-	//size_t	i;
-
-	//new_dst = dst;
-	//printf("new_dst: %s\n", new_dst);
-	dst_len = (ft_strlen(dst) + 1);
-	printf("dst_len: %zu\n", dst_len);
-	end = dst_len;
-	printf("end: %zu\n", end);
-	src_len = ft_strlen(src);
-	printf("src_len: %zu\n", src_len);
-	printf("src: %s\n", src);
-	//i = 0;
-	while (*src != '\0' && end != (dst_size - 1) && dst_size > 0)
-	{
-		dst[end] = *src;
-		printf("new_dst: %s\n", dst);
-		i++;
-		end++;
-	}
-
-	dst[end] = '\0';
-	return (dst_len + src_len);
-}
-*/
-size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
-/*
+size_t    ft_strlcat(char *dst, const char *src, size_t dst_size)
 {
     size_t    dst_len;
     size_t    src_len;
     size_t    end;
+    size_t    i;
 
     dst_len = ft_strlen(dst);
     src_len = ft_strlen(src);
     end = dst_len;
-    //if (dst_len > dst_size)
-        //return (dst_size + src_len);
-    //if (dst_size == 0)
-        //return (src_len);
-    //while (*src && *src != '\0' && end != (dst_size - 1) && dst_size > 0)
-	while(*src)
-    {
-        dst[end] = *src;
-		printf("dst: %s\n", dst);
-        end++;
-        src++;
-    }
+    i = 0;
+    if (dst_size < dst_len)
+        return (dst_size + src_len);
+    while (dst_size > 0 && end < dst_size - 1 && src[i])
+            dst[end++] = src[i++];
     dst[end] = '\0';
     return (dst_len + src_len);
-}
-*/
-{
-	size_t i;
-	size_t j;
-
-	i = 0;
-	j = 0;
-	while (dst[i])
-	{
-		printf("dst: %s\n", dst);
-		i++;
-	}
-	if (dst_size < i)
-	{
-		while (src[j])
-			{
-				printf("src: %s\n", src);
-				j++;
-			}
-
-		return (dst_size + j);
-	}
-	while (dst_size > 0 && i < dst_size - 1 && src[j])
-		{
-			dst[i++] = src[j++];
-			printf("dst: %s\n", dst);
-		}
-
-	dst[i] = '\0';
-	printf("dst: %s\n", dst);
-	while (src[j++])
-	{
-		printf("src: %s\n", src);
-		i++;
-	}
-
-	return (i);
-}
-
-int		main(void)
-{
-	printf("%zu\n\n", ft_strlcat("abc12345678", "BABABABA", 0));
-	printf("%zu\n\n", ft_strlcat("abc", "def", 1));
-	printf("%zu\n\n", ft_strlcat("abc", "def", 2));
-	//printf("%zu\n\n", ft_strlcat("abc", "def", 3));
-	//printf("%zu\n\n", ft_strlcat("abc", "def", 4));
-
-	return (0);
 }

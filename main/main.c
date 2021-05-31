@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:37:52 by kyoko             #+#    #+#             */
-/*   Updated: 2021/05/26 12:38:41 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/05/31 14:06:19 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -418,5 +418,104 @@ char *ft_strnstr(const char *inside, const char *tofind, size_t len)
 		printf("%s+\n", str_chr);
 	}
 	return (NULL);
+}
+*/
+
+/*
+** ft_strlcat
+*/
+
+/*
+size_t    ft_strlcat(char *dst, const char *src, size_t dst_size)
+{
+    size_t    dst_len;
+    size_t    src_len;
+    size_t    end;
+    size_t    i;
+
+    dst_len = ft_strlen(dst);
+    src_len = ft_strlen(src);
+    end = dst_len;
+    i = 0;
+	printf("dst: %s\n", dst);
+    if (dst_size < dst_len)
+        return (dst_size + src_len);
+    while (dst_size > 0 && end < dst_size - 1 && src[i])
+            dst[end++] = src[i++];
+    dst[end] = '\0';
+	printf("dst: %s\n", dst);
+    return (dst_len + src_len);
+}
+*/
+
+int    main()
+{
+    char    str[20];
+    str[0] = 'a';
+    str[1] = '\0';
+    printf("%zu\n", ft_strlcat(str,  "BABABABA", 18));
+
+	char    str2[20];
+    str2[0] = 'a';
+    str2[1] = '\0';
+    printf("%zu\n", ft_strlcat(str2,  "BABABABA", 0));
+
+	char    str3[0];
+    printf("%zu\n", ft_strlcat(str3,  "BABABABA", 18));
+
+	return (0);
+}
+
+/*
+int main(void)
+{
+char    *str = "Hello World!";
+    char    buf[1024] = "Hello";
+    char    buf2[1024] = "Hello";
+    size_t    len;
+    size_t    len2;
+
+    len = ft_strlcat(buf, " World!", 1024);
+    len2 = strlcat(buf2, " World!", 1024);
+    if (len != len2 || strcmp(buf, buf2) != 0)
+        return (0);
+
+    strcpy(buf, "Hello");
+    strcpy(buf2, "Hello");
+
+    len = ft_strlcat(buf, " World!", 12);
+    len2 = strlcat(buf2, " World!", 12);
+    if (len != len2 || strcmp(buf, buf2) != 0)
+        return (0);
+
+    strcpy(buf, "Hello");
+    strcpy(buf2, "Hello");
+
+    len = ft_strlcat(buf, " World!", 0);
+    len2 = strlcat(buf2, " World!", 0);
+    if (len != len2 || strcmp(buf, buf2) != 0)
+        return (0);
+    
+    len = ft_strlcat(buf, " World!", 6);
+    len2 = strlcat(buf2, " World!", 6);
+    if (len != len2 || strcmp(buf, buf2) != 0)
+        return (0);
+
+    strcpy(buf, "Hello");
+    strcpy(buf2, "Hello");
+
+    len = ft_strlcat(buf, " World!", 5);
+    len2 = strlcat(buf2, " World!", 5);
+    if (len != len2 || strcmp(buf, buf2) != 0)
+        return (0);
+
+    strcpy(buf, "");
+    strcpy(buf2, "");
+
+    len = ft_strlcat(buf, " World!", 5);
+    len2 = strlcat(buf2, " World!", 5);
+    if (len != len2 || strcmp(buf, buf2) != 0)
+        return (0);
+    return (1);
 }
 */
