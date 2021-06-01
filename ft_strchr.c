@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:39:13 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/27 15:50:04 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/01 11:42:33 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ char    *ft_strchr(const char *s, int c)
 {
     while (*s != '\0' && *s != c)
         s++;
+	printf("%s\n", s);
+	printf("%s\n", s);
     if (*s == c)
-	{
         return ((char *)s);
-	}
 	return (NULL);
 }
 

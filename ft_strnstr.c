@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 11:19:26 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/26 12:38:35 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/01 11:47:08 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,40 @@ RETURN VALUES
 */
 
 #include "libft.h"
+/*
+char	*ft_strnstr(const char *inside, const char *tofind, size_t len_tosearch)
+{
+	char	*found;
+	size_t	i;
+	size_t	k;
+	size_t	x;
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+	found = inside;
+	i = 0;
+	k = 0;
+	if (!*tofind)
+		return ((char *)inside);
+	if (*inside && len_tosearch > 0)
+	{
+		//while (inside[i] != 0 && inside[i] != tofind[0])
+			//i++
+		//x = i;
+		if (ft_strchr(found) != NULL)
+			found = ft_strchr(inside);
+		while (found[i] == tofind[k] && k <= len_tosearch)
+		{
+			i++;
+			k++;
+		}
+		if (ft_strlen(found) == len_tosearch)
+			//return ((char *)inside[x]);
+			//return(ft_strchr(inside))
+	}
+	return (NULL);
+}
+
+*/
+/*
 {
 	size_t	i;
 	size_t	k;
@@ -46,8 +78,8 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	//new_s1 = "x";
 	printf("i : %ld\n", i);
 	printf("k : %ld\n", i);
-	if (!*s2)
-		return ((char *)s1);
+	if (!*tofind || inside == tofind)
+		return ((char *)inside);
 	if (!*s1 || len != 0)
 	{
 		while (s1[i] != '\0' && s1[i] != s2[0])
@@ -70,5 +102,5 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	}
 	return (NULL);
 }
-
+*/
 
