@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:37:52 by kyoko             #+#    #+#             */
-/*   Updated: 2021/05/31 14:06:19 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/02 13:39:41 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -376,50 +376,51 @@ char *ft_strnstr(const char *inside, const char *tofind, size_t len)
 }
 */
 
-
-
-
+/*
+** ft_strnstr
+*/
 
 /*
-char *ft_strnstr(const char *inside, const char *tofind, size_t len)
+char	*ft_strnstr(const char *inside, const char *tofind, size_t len_tosearch)
 {
-	char	*new_inside;
-	char	*str_chr;
-	char	new_str_chr;
-	int		str_cmp;
-	int		c_tofind;
+	char	*found;
+	size_t	i;
+	size_t	x;
 	size_t	len_tofind;
 
-	new_inside = (char *)inside;
+	found = (char *)inside;
+	i = 0;
 	len_tofind = ft_strlen(tofind);
-	printf("len: %ld\n", len_tofind);
-	c_tofind = tofind[0];
-	str_chr = ft_strchr(inside, c_tofind);
-	str_cmp = ft_strncmp(str_chr, tofind, len_tofind);
-
-
-	if (len_tofind > len)
-		return (NULL);
-	if (!*tofind)
-		return (new_inside);
-	printf("%s\n", str_chr);
-	while (str_chr != NULL)
+	if ((!*tofind || inside == tofind) && len_tosearch > 0)
+		return (found);
+	while (found[i] != '\0' && len_tosearch > 0 && i < len_tosearch)
 	{
-		printf("cmp: %d\n", str_cmp);
-		if (str_cmp == 0)
-			return (str_chr);
-		//if (str_cmp > 0)
-		else
-		{
-			str_chr++;
-			str_chr = ft_strchr(str_chr, c_tofind);
-			str_cmp = ft_strncmp(str_chr, tofind, len_tofind);
-		}
-		printf("%s+\n", str_chr);
+		x = 0;
+		while (found[i + x] == tofind[x])
+			x++;
+		printf("i: %zu\n", i);
+		printf("x: %zu\n", x);
+		if (x == len_tofind)
+			return (found + i);
+		i++;
 	}
 	return (NULL);
 }
 */
+
+int	main(void)
+{
+	printf("1. YEP %s\n", ft_strnstr("PATATE", "PATATE", 6));
+	printf("2. YEP %s\n", ft_strnstr("PATATE", "PATATE", 3));
+	printf("3. YEP %s\n", ft_strnstr("PATATE", "", 6));
+	printf("4. FAIL %s\n", ft_strnstr("", "PATATE", 6));
+	printf("5. FAIL %s\n", ft_strnstr("PATATE", "PATATE", 0));
+	printf("6. FAIL %s\n", ft_strnstr("abcPATATEdef", "PATATE", 3));
+	printf("7. YEP %s\n", ft_strnstr("abcPATATEdef", "PATATE", 9));
+	printf("8. YEP %s\n", ft_strnstr("abcPATATEdef", "TE", 12));
+
+	return (0);
+}
 
 /*
 ** ft_strlcat
@@ -495,7 +496,7 @@ char    *str = "Hello World!";
     len2 = strlcat(buf2, " World!", 0);
     if (len != len2 || strcmp(buf, buf2) != 0)
         return (0);
-    
+
     len = ft_strlcat(buf, " World!", 6);
     len2 = strlcat(buf2, " World!", 6);
     if (len != len2 || strcmp(buf, buf2) != 0)

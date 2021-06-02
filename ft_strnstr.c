@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 11:19:26 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/01 11:47:08 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/02 13:40:32 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,74 +33,29 @@ RETURN VALUES
 */
 
 #include "libft.h"
-/*
+
 char	*ft_strnstr(const char *inside, const char *tofind, size_t len_tosearch)
 {
 	char	*found;
 	size_t	i;
-	size_t	k;
 	size_t	x;
+	size_t	len_tofind;
 
-	found = inside;
+	found = (char *)inside;
 	i = 0;
-	k = 0;
-	if (!*tofind)
-		return ((char *)inside);
-	if (*inside && len_tosearch > 0)
+	len_tofind = ft_strlen(tofind);
+	if ((!*tofind || inside == tofind) && len_tosearch > 0)
+		return (found);
+	while (found[i] != '\0' && len_tosearch > 0 && i < len_tosearch)
 	{
-		//while (inside[i] != 0 && inside[i] != tofind[0])
-			//i++
-		//x = i;
-		if (ft_strchr(found) != NULL)
-			found = ft_strchr(inside);
-		while (found[i] == tofind[k] && k <= len_tosearch)
-		{
-			i++;
-			k++;
-		}
-		if (ft_strlen(found) == len_tosearch)
-			//return ((char *)inside[x]);
-			//return(ft_strchr(inside))
+		x = 0;
+		while (found[i + x] == tofind[x])
+			x++;
+		printf("i: %zu\n", i);
+		printf("x: %zu\n", x);
+		if (x == len_tofind)
+			return (found + i);
+		i++;
 	}
 	return (NULL);
 }
-
-*/
-/*
-{
-	size_t	i;
-	size_t	k;
-	char	new_s1[] = "x";
-	//char	*new_s1;
-
-	i = 0;
-	k = 0;
-	//new_s1 = "x";
-	printf("i : %ld\n", i);
-	printf("k : %ld\n", i);
-	if (!*tofind || inside == tofind)
-		return ((char *)inside);
-	if (!*s1 || len != 0)
-	{
-		while (s1[i] != '\0' && s1[i] != s2[0])
-		{
-			i++;
-			printf("i : %ld\n", i);
-		}
-		while (s1[i] == s2[k])
-		{
-			new_s1[k] = s1[i];
-			printf("%s\n", new_s1);
-			if (ft_strlen(new_s1) == ft_strlen(s2) ||
-					(ft_strlen(s2) > len && ft_strlen(new_s1) == len))
-				return ((char *)(s1));
-			i++;
-			printf("i : %ld\n", i);
-			k++;
-			printf("K : %ld\n", k);
-		}
-	}
-	return (NULL);
-}
-*/
-
