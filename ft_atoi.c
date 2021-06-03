@@ -6,23 +6,30 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 11:25:00 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/12 11:27:53 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/03 14:45:29 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** atoi()
-** 	Convertir une chaîne en entier
-** 	Convertit le début de la chaîne pointée par nptr en entier de type int.
-** 		Le résultat est identique à un appel
-** 		Ne détecte pas d'erreur.
+** 	Convertir une chaîne de caractères (48 à 57) en entier
 ** VALEUR RENVOYÉE
-** 	Le résultat de la conversion.
-** CONFORMITÉ
-** 	SVr4, POSIX.1-2001, BSD 4.3, C99. C89 et POSIX.1-1996
+** 	Le résultat de la conversion ou 0 si invalide.
 */
 
-int		ft_atoi(const char *nptr)
-{
+#include "libft.h"
 
+int		ft_atoi(const char *str_toconvert)
+{
+	int converted;
+
+	converted = 0;
+	while (*str_toconvert != '\0')
+	{
+		converted = converted * 10 + (*str_toconvert - '0');
+		if (*str_toconvert - '0' > 9 || converted < 0)
+			return (0);
+		str_toconvert++;
+	}
+	return (converted);
 }

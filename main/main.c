@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:37:52 by kyoko             #+#    #+#             */
-/*   Updated: 2021/06/02 13:39:41 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/03 14:43:16 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -520,3 +520,24 @@ char    *str = "Hello World!";
     return (1);
 }
 */
+
+/*
+** ft_atoi
+*/
+
+int	main(void)
+{
+	printf("1. %d\n", ft_atoi("1"));
+	printf("2. %d\n", ft_atoi("123"));
+	printf("3. %d\n", ft_atoi("A"));
+	printf("4. %d\n", ft_atoi("123a"));
+	printf("5. %d\n", ft_atoi("1 + 1"));
+	printf("6. %d\n", ft_atoi(" "));
+	printf("7. %d\n", ft_atoi("0123456789"));
+	printf("8. %d\n", ft_atoi("1234567890"));
+	printf("9. %d\n", ft_atoi("1 1"));
+	printf("10. %d\n", ft_atoi("/1"));
+	printf("11. %d\n", ft_atoi("1:"));
+
+	return (0);
+}

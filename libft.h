@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:12:56 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/02 13:40:13 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/03 15:15:20 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t dst_size);
 char	*ft_strnstr(const char *inside, const char *tofind, size_t len_tosearch);
-int		ft_atoi(const char *nptr);
+int		ft_atoi(const char *str_toconvert);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 /*
