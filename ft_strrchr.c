@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:44:48 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/18 15:13:50 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/04 11:10:23 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,41 +20,19 @@
 ** VALEUR RENVOYÉE
 ** 	Un pointeur sur le caractère correspondant, ou NULL si le caractère
 ** 		n'a pas été trouvé.
-** CONFORMITÉ
-** 	SVr4, BSD 4.3, C89 et C99
 */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *str, int c)
 {
 	size_t	len;
 
-	len = ft_strlen(s);
+	len = ft_strlen(str) + 1;
 	while (len--)
 	{
-		if (*(len + s) == c)
-			return ((char *)(len + s));
+		if (*(len + str) == c)
+			return ((char *)(len + str));
 	}
 	return (NULL);
 }
-
-/*
-** char *ft_strrchr(const char *s, int c)
-** {
-**   const char *found;
-**   const char *p;
-** 
-**   c = (size_t) c;
-** 
-**   if (c == '\0')
-**     return ft_strchr(s, '\0');
-**   found = NULL;
-**   while ((p = ft_strchr(s, c)) != NULL)
-**     {
-**       found = p;
-**       s = p + 1;
-**     }
-**   return ((char *) found);
-** }
-*/

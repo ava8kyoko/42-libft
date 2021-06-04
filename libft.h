@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:12:56 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/03 15:15:20 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/04 14:41:24 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_list
 /*
 ** Libc functions
 */
-void	*ft_memset(void *s, int c, size_t n);
+void	*ft_memset(void *str, int c, size_t len_tofill);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
@@ -48,7 +48,7 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t dst_size);
 char	*ft_strnstr(const char *inside, const char *tofind, size_t len_tosearch);
-int		ft_atoi(const char *str_toconvert);
+int		ft_atoi(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 /*

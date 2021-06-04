@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:39:13 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/01 11:42:33 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/04 10:32:59 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 char    *ft_strchr(const char *s, int c)
 {
-    while (*s != '\0' && *s != c)
+    while (*s && *s != c)
         s++;
 	printf("%s\n", s);
 	printf("%s\n", s);

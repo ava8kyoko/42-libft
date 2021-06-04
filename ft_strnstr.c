@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 11:19:26 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/02 13:40:32 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/04 12:03:22 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,24 @@ RETURN VALUES
 char	*ft_strnstr(const char *inside, const char *tofind, size_t len_tosearch)
 {
 	char	*found;
+	size_t	ptr;
 	size_t	i;
-	size_t	x;
 	size_t	len_tofind;
 
 	found = (char *)inside;
-	i = 0;
+	ptr = 0;
 	len_tofind = ft_strlen(tofind);
-	if ((!*tofind || inside == tofind) && len_tosearch > 0)
+	if (!*tofind || inside == tofind)
 		return (found);
-	while (found[i] != '\0' && len_tosearch > 0 && i < len_tosearch)
+	while (found[ptr] != '\0' && len_tosearch > 0 && ptr < len_tosearch)
 	{
-		x = 0;
-		while (found[i + x] == tofind[x])
-			x++;
-		printf("i: %zu\n", i);
-		printf("x: %zu\n", x);
-		if (x == len_tofind)
-			return (found + i);
-		i++;
+		i = 0;
+		while (found[ptr + i] != '\0' && tofind[i] != '\0'
+			&& found[ptr + i] == tofind[i] && ptr + i < len_tosearch)
+			i++;
+		if (i == len_tofind)
+			return (found + ptr);
+		ptr++;
 	}
 	return (NULL);
 }

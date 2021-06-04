@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:37:52 by kyoko             #+#    #+#             */
-/*   Updated: 2021/06/03 14:43:16 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/04 10:27:48 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -538,6 +538,29 @@ int	main(void)
 	printf("9. %d\n", ft_atoi("1 1"));
 	printf("10. %d\n", ft_atoi("/1"));
 	printf("11. %d\n", ft_atoi("1:"));
+
+	return (0);
+}
+
+/*
+** ft_memset
+*/
+
+int	main(void)
+{
+	char    str1[20];
+    str1[4] = 'b';
+    str1[5] = '\0';
+    printf("%s\n\n", ft_memset(str1, 'a', 4));
+
+	char    str2[20];
+    str2[1] = 'c';
+    printf("%s\n\n", ft_memset(str2, 65, 10));
+
+	char    str3[20];
+    str3[1] = 'c';
+	str3[2] = '\0';
+    printf("%s\n\n", ft_memset(str3, '0', 10));
 
 	return (0);
 }
