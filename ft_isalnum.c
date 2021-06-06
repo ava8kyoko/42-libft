@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:46:27 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/14 15:11:15 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/06 00:21:55 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 ** VALEUR RENVOYÉE
 ** 		Les valeurs renvoyées sont non nulles si le caractère c entre dans
 ** 			la catégorie testée et zéro sinon.
-** CONFORMITÉ
-** 		?
 ** NOTES
 ** 		L'appartenance d'un caractère à une catégorie dépend des paramètres
 ** 		régionaux. Par exemple isupper() ne reconnaîtra pas la lettre

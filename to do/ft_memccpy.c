@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:12:20 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/12 10:43:48 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/06 00:36:24 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,43 @@
 */
 
 #include "libft.h"
-
+/*
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
+	unsigned char	*t1;
+	unsigned char	*t2;
+	size_t			i;
 
+	i = 0;
+	t1 = (unsigned char *)dest;
+	t2 = (unsigned char *)src;
+	while (i < n)
+	{
+		t1[i] = t2[i];
+		if (t1[i] == (unsigned char)c)
+			return ((void*)(dest + i++));
+		++i;
+	}
+	return (NULL);
 }
+
+{
+	unsigned char	*ptr;
+	unsigned char	*ptr2;
+	unsigned char	cs;
+	int				i;
+
+	ptr = (unsigned char*)dest;
+	ptr2 = (unsigned char*)src;
+	cs = (unsigned char)c;
+	i = 0;
+	while (n-- > 0)
+	{
+		*(ptr + i) = *(ptr2 + i);
+		if (*(ptr2 + i) == cs)
+			return (dest + i++);
+		i++;
+	}
+	return (0);
+}
+*/

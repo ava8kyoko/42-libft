@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 10:58:20 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/03 14:47:30 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/06 00:36:38 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,36 @@
 */
 
 #include "libft.h"
-
+/*
 void	ft_bzero(void *s, size_t n)
 {
+	{
+	unsigned char	*dest;
+	size_t			i;
 
+	dest = b;
+	i = 0;
+	while (i++ < n)
+		*dest++ = 0;
+}
+
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		((char *)s)[i] = 0;
+		i++;
+	}
+}
+
+{
+	while (n--)
+	{
+		(char *)s = '0';
+		s++;
+	}
 }
 
 int	main(void)
@@ -31,3 +57,4 @@ int	main(void)
 
 	return (0);
 }
+*/

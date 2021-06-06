@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:18:27 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/12 11:19:01 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/06 00:36:07 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,25 @@
 */
 
 #include "libft.h"
-
+/*
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
+	char	*s;
+	char	*d;
+	size_t	i;
 
+	s = (char *)src;
+	d = (char *)dst;
+	i = 0;
+	if (d > s)
+		while (len-- > 0)
+			d[len] = s[len];
+	else
+		while (i < len)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	return (dst);
 }
+*/

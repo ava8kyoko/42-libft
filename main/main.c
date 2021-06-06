@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:37:52 by kyoko             #+#    #+#             */
-/*   Updated: 2021/06/04 10:27:48 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/06 00:21:22 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -538,6 +538,8 @@ int	main(void)
 	printf("9. %d\n", ft_atoi("1 1"));
 	printf("10. %d\n", ft_atoi("/1"));
 	printf("11. %d\n", ft_atoi("1:"));
+	printf("12. %d\n", ft_atoi("2147483647"));
+	printf("13. %d\n", ft_atoi("-2147483648"));
 
 	return (0);
 }
@@ -564,3 +566,4 @@ int	main(void)
 
 	return (0);
 }
+
