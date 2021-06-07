@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:12:56 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/06 22:56:50 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/07 11:41:09 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ typedef struct s_list
 */
 void	*ft_memset(void *str, int character, size_t len_tofill);
 void	ft_bzero(void *str, size_t len_tofill);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t size_tocopy);
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *str, int char_tosearch, size_t size);
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
+int		ft_memcmp(const void *str1, const void *str2, size_t size_tocompare);
 size_t	ft_strlen(const char *s);
 int		ft_isalpha(int character);
 int		ft_isdigit(int character);

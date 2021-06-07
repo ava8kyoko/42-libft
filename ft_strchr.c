@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:39:13 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/04 10:32:59 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/07 10:38:27 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char    *ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-
+/*
 int    main(void)
 {
     printf("%s\n", ft_strchr("patate", 'p'));
@@ -48,7 +48,7 @@ int    main(void)
     printf("%s\n", ft_strchr("patate", 'h'));
     return (0);
 }
-
+*/
 /*
 char	*ft_strchr(const char *s, int c)
 {

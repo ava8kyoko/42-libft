@@ -10,9 +10,9 @@ void	ft_bzero(void *str, size_t len_tofill)
 	while (len_tofill--)
 		{
 			*new_str++ = 0;
-			printf("%s\n", new_str);	
+			printf("%s\n", new_str);
 		}
-		
+
 }
 */
 
@@ -44,3 +44,24 @@ int		main(void)
 
 	return (0);
 }
+
+/*
+	size_t	i;
+
+	i = 0;
+	while (i < len_tofill)
+	{
+		((char *)str)[i] = 0;
+		i++;
+	}
+*/
+
+/*
+	unsigned char	*dest;
+	size_t			i;
+
+	dest = str;
+	i = 0;
+	while (i++ < len_tofill)
+		*dest++ = 0;
+*/
