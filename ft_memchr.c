@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:26:33 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/06 00:13:35 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/06 22:54:30 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,36 +31,16 @@
 
 #include "libft.h"
 
-void	*ft_memchr(const void *ptr, int char_tosearch, size_t size)
+void	*ft_memchr(const void *str, int char_tosearch, size_t size)
 {
-	unsigned char *new_ptr;
+	unsigned char *new_str;
 
-	new_ptr = (unsigned char*)ptr;
+	new_str = (unsigned char*)str;
 	while (size--)
 	{
-		if (*new_ptr == (unsigned char)char_tosearch)
-			return (new_ptr);
-		new_ptr++;
+		if (*new_str == (unsigned char)char_tosearch)
+			return (new_str);
+		new_str++;
 	}
 	return (NULL);
-}
-
-int main() 
-{
-
-    char data[] = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
-    const unsigned int size = 10;
-
-    // On recherche une valeur inhéxistante :
-    void * found = ft_memchr( data, 57, size );
-    printf( "57 is %s\n", ( found != NULL ? "found" : "not found" ) );
-
-    // On recherche une valeur existante :
-    found = ft_memchr( data, 50, size );
-    printf( "50 is %s\n", ( found != NULL ? "found" : "not found" ) );
-    if ( found != NULL ) {
-        printf( "La valeur à la position calculée est %d\n", *((char *) found) );
-    }
-
-    return EXIT_SUCCESS;
 }

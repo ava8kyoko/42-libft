@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:46:27 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/06 00:21:55 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/06 22:59:24 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,18 @@
 
 #include "libft.h"
 
-int		ft_isalnum(int c)
+int		ft_isalnum(int character)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
+	if (ft_isalpha(character) || ft_isdigit(character))
 		return (1);
 	return(0);
 }
 
 /*
-** int		ft_isalnum(int c)
+** int		ft_isalnum(int character)
 ** {
-** 	return (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z')
-** 		|| ('0' <= c && c <= '9'));
+** 	return (('A' <= character && character <= 'Z') 
+**		|| ('a' <= character && character <= 'z')
+** 		|| ('0' <= character && character <= '9'));
 ** }
 */

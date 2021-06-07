@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:12:56 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/06 00:01:25 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/06 22:56:50 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,21 @@ typedef struct s_list
 /*
 ** Libc functions
 */
-void	*ft_memset(void *str, int c, size_t len_tofill);
-void	ft_bzero(void *s, size_t n);
+void	*ft_memset(void *str, int character, size_t len_tofill);
+void	ft_bzero(void *str, size_t len_tofill);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
-void	*ft_memchr(const void *ptr, int char_tosearch, size_t size);
+void	*ft_memchr(const void *str, int char_tosearch, size_t size);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t	ft_strlen(const char *s);
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
+int		ft_isalpha(int character);
+int		ft_isdigit(int character);
+int		ft_isalnum(int character);
+int		ft_isascii(int character);
+int		ft_isprint(int character);
+int		ft_toupper(int character);
+int		ft_tolower(int character);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);

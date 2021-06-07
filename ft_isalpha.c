@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:48:24 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/17 22:55:52 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/06 23:00:11 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,18 @@
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_isalpha(int character)
 {
-	if (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'))
+	if (('A' <= character && character <= 'Z') 
+		|| ('a' <= character && character <= 'z'))
 		return (1);
 	return (0);
 }
 
 /*
-** int     ft_isalpha(int c)
+** int     ft_isalpha(int character)
 ** {
-**     if (isupper(c) || islower(c))
+**     if (isupper(character) || islower(character))
 **         return (1);
 **     return (0);
 ** }

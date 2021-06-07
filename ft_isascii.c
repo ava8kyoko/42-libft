@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:56:27 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/13 13:54:42 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/06 23:00:24 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@
 
 #include "libft.h"
 
-int		ft_isascii(int c)
+int		ft_isascii(int character)
 {
-	if (0 <= c && c <= 127)
+	if (0 <= character && character <= 127)
 		return(1);
 	return (0);
 }

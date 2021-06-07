@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 10:58:20 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/06 00:36:38 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/06 22:51:57 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,41 +20,31 @@
 */
 
 #include "libft.h"
-/*
-void	ft_bzero(void *s, size_t n)
-{
-	{
-	unsigned char	*dest;
-	size_t			i;
 
-	dest = b;
-	i = 0;
-	while (i++ < n)
-		*dest++ = 0;
+void	ft_bzero(void *str, size_t len_tofill)
+{
+	unsigned char	*new_str;
+
+	new_str = str;
+	while (len_tofill--)
+		*new_str++ = 0;
 }
 
-{
+/*
 	size_t	i;
 
 	i = 0;
-	while (i < n)
+	while (i < len_tofill)
 	{
-		((char *)s)[i] = 0;
+		((char *)str)[i] = 0;
 		i++;
 	}
-}
+	
+	unsigned char	*dest;
+	size_t			i;
 
-{
-	while (n--)
-	{
-		(char *)s = '0';
-		s++;
-	}
-}
-
-int	main(void)
-{
-
-	return (0);
-}
+	dest = str;
+	i = 0;
+	while (i++ < len_tofill)
+		*dest++ = 0;
 */

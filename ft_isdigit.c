@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:59:32 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/17 23:13:03 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/06 23:00:37 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_isdigit(int character)
 {
-	if ('0' <= c && c <= '9')
+	if ('0' <= character && character <= '9')
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 13:12:07 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/17 23:18:06 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/06 23:00:51 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+int	ft_isprint(int character)
 {
-	if (32 <= c && c <= 126)
+	if (32 <= character && character <= 126)
 		return (1);
 	return (0);
 }
