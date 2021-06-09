@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:39:13 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/08 23:37:15 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/09 11:08:48 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,3 @@ char    *ft_strchr(const char *str, int character)
         return ((char *)str);
 	return (NULL);
 }
-
-/*
-int    main(void)
-{
-    printf("%s\n", ft_strchr("patate", 'p'));
-    printf("%s\n", ft_strchr("patate", 't'));
-    printf("%s\n", ft_strchr("patate", 'h'));
-    return (0);
-}
-*/

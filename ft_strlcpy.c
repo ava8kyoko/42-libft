@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:58:17 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/09 00:02:37 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/09 14:53:34 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,16 @@ https://linux.die.net/man/3/strlcpy
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size_tocopy)
 {
 	size_t	i;
 
 	i = 0;
 	if (!src)
 		return (0);
-	if (size == 0)
+	if (size_tocopy == 0)
 		return (ft_strlen(src));
-	while (src[i] != '\0' && i < (size - 1))
+	while (src[i] != '\0' && --size_tocopy)
 	{
 		dst[i] = src[i];
 		i++;
@@ -56,17 +56,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[i] = '\0';
 	return (ft_strlen(src));
 }
-
-/*
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	if (!src)
-		return (0);
-	if (size == 0)
-		return (ft_strlen(src));
-	while (src++ != '\0' && --size)
-		*dst++ = *src++;
-	*dst++ = '\0';
-	return (ft_strlen(src));
-}
-*/

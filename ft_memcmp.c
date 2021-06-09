@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:31:46 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/07 11:38:04 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/09 10:29:55 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,14 @@
 
 int		ft_memcmp(const void *str1, const void *str2, size_t size_tocompare)
 {
-	size_t			i;
 	unsigned char	*new_str1;
 	unsigned char	*new_str2;
 
 	new_str1 = (unsigned char *)str1;
 	new_str2 = (unsigned char *)str2;
-	i = 0;
 	if (size_tocompare == 0)
 		return (0);
-	while (*new_str1 == *new_str2 && ++i < size_tocompare)
+	while (*new_str1 == *new_str2 && --size_tocompare)
 	{
 		new_str1++;
 		new_str2++;
