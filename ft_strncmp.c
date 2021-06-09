@@ -6,38 +6,52 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:53:03 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/25 15:44:35 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/08 23:44:44 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-strcmp(), strncmp()
-	Comparaison de deux chaînes.
-strcmp()
-	compare les deux chaînes s1 et s2.
-    Elle renvoie un entier négatif, nul, ou positif, si s1  est
-    respectivement inférieure, égale ou supérieure à s2.
-strncmp()
-	est identique sauf qu'elle ne com­pare que les n premiers
-	caractères de s1.
-VALEUR RENVOYÉE
-	un  entier inférieur,  égal  ou supérieur à zero si s1
-	(ou ses n pre­miers octets)  est  respectivement  inférieure, égale
-	ou supérieure à s2.
-CONFORMITÉ
-   SVID 3, POSIX, BSD 4.3, ISO 9899.
+** strncmp
+**	Cette fonction permet de comparer deux chaînes de caractères et de savoir 
+**	si la première est inférieure, égale ou supérieure à la seconde. Cette 
+**	comparaison sera faites dans l'ordre lexicographique (et donc, en tenant 
+**	compte des valeurs ASCII des différents caractères comparés). Néanmoins 
+**	la comparaison se fera au maximum sur les length premiers caractères.
+**
+**	En langage C, les chaînes de caractères sont qualifiées d'AZT : A 
+**	Zéro Terminal. Cela signifie qu'une chaîne de caractères se termine 
+**	forcément par un code ASCII nul (pouvant aussi être représenté par '\0').
+**
+** PARAMÈTRES
+**	first : la première chaîne de caractères à comparer.
+**	second : la seconde chaîne de caractères à comparer.
+**	length : le nombre maximal (un entier non signé) de caractères à comparer.
+**
+** VALEUR DE RETOUR
+**	Trois cas distincts doivent être considérés. Soit les deux chaînes sont 
+**	égales : dans ce cas, une valeur nulle sera retournée. Soit la première 
+**	chaîne est plus petite que la seconde (dans l'ordre lexicographique) : 
+**	dans ce cas, une valeur négative sera retournée. Soit la première chaîne 
+**	est plus grande que la seconde : dans ce dernier cas, une valeur positive 
+**	sera renvoyées. Dans tous les cas, la valeur absolue indiquera la position 
+**	du premier caractères permettant de produire le résultat.
+**
+** ATTENTION
+**	Notez bien que la comparaison porte au maximum sur les length 
+**	premiers caractères de la chaîne.
 */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *str1, const char *str2, size_t len_tocompare)
 {
 	size_t	i;
 
 	i = 0;
-	if (n == 0)
+	if (len_tocompare == 0)
 		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i] && i < (n - 1))
+	while (str1[i] != '\0' && str2[i] != '\0' && str1[i] == str2[i] 
+		&& i < (len_tocompare - 1))
 		i++;
-	return ((unsigned char)(s1[i]) - (unsigned char)(s2[i]));
+	return ((unsigned char)(str1[i]) - (unsigned char)(str2[i]));
 }

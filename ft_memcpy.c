@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:08:05 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/07 13:02:34 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/08 23:56:47 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,14 @@ void	*ft_memcpy(void *dest, const void *src, size_t size_tocopy)
 	}
 	return (dest);
 }
+
+/*
+void	*ft_memcpy(void *dest, const void *src, size_t size_tocopy)
+{
+	if (!dest && !src)
+		return (NULL);
+	while (size_tocopy--)
+		*(char *)(dest++) = *(char *)(src++);
+	return (dest);
+}
+*/

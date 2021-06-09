@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:44:48 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/04 11:10:23 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/08 23:37:56 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int character)
 {
 	size_t	len;
 
 	len = ft_strlen(str) + 1;
 	while (len--)
 	{
-		if (*(len + str) == c)
+		if (*(len + str) == character)
 			return ((char *)(len + str));
 	}
 	return (NULL);

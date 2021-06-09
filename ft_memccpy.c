@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:12:20 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/08 10:15:42 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/08 23:54:39 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,20 @@ void	*ft_memccpy(void *dest, const void *src, int character_tostop,
 	}
 	return (NULL);
 }
+
+/*
+{
+	unsigned char	*new_dest;
+	unsigned char	*new_src;
+
+	new_dest = (unsigned char *)dest;
+	new_src = (unsigned char *)src;
+	while (maxSize_tocopy--)
+	{
+		*(++new_dest) = *(++new_src);
+		if (*new_dest == (unsigned char)character_tostop)
+			return ((void *)(++new_dest));
+	}
+	return (NULL);
+}
+*/

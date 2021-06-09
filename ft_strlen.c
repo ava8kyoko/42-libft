@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:37:07 by mchampag          #+#    #+#             */
-/*   Updated: 2021/05/17 23:30:40 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/08 23:48:14 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,20 @@
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
+
+/*
+size_t	ft_strlen(const char *str)
+{
+	while (*(str++) != '\0')
+	return (str);
+}
+*/

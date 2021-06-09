@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:26:33 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/06 22:54:30 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/08 23:52:42 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@
 
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int char_tosearch, size_t size)
+void	*ft_memchr(const void *str, int character, size_t size_tosearch)
 {
 	unsigned char *new_str;
 
 	new_str = (unsigned char*)str;
-	while (size--)
+	while (size_tosearch--)
 	{
-		if (*new_str == (unsigned char)char_tosearch)
+		if (*new_str == (unsigned char)character)
 			return (new_str);
 		new_str++;
 	}
