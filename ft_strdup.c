@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:06:32 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/09 15:21:20 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/11 12:11:48 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 ** strndup()
 **	Cette fonction permet de dupliquer une chaîne de caractères.
 **
+** ATTENTION
 **	La fonction strdup alloue une nouvelle zone de mémoire via la fonction
 **	malloc afin d'y copier la chaîne de caractères initiale. Il est donc
 **	impératif de libérer cette zone de mémoire après utilisation via la
@@ -37,61 +38,22 @@
 
 #include "libft.h"
 
-char *ft_strdup(const char *src)
+char *ft_strdup(const char *src_tocopy)
 {
-	char	*duplicated;
-	char	*sptr;
-	char	*dptr;
+	char	*memory_space;
+	size_t	i;
+	size_t	len;
 
-	sptr = (char *)src;
-	while (*sptr++)
-		;
-	duplicated = malloc(sptr - src + 1);
-	if (!duplicated)
-		return (NULL);
-	dptr = duplicated;
-	while ((*dptr++ = *src++) != '\0')
-		;
-	*dptr = '\0';
-	return (duplicated);
-}
-
-/*
-char	*ft_strdup(char *src)
-{
-	int		i;
-	int		len;
-	char	*str;
-
-	len = 0;
-	while (src[len])
-		len++;
-	str = (char*)malloc(sizeof(*str) * (len + 1));
+	len = ft_strlen(src_tocopy);
+	memory_space = (char *)malloc(len + 1);
 	i = 0;
-	while (i < len)
+	if (!memory_space)
+		return (NULL);
+	while(src_tocopy[i] != '\0' && len--)
 	{
-		str[i] = src[i];
+		memory_space[i] = src_tocopy[i];
 		i++;
 	}
-	return (str);
+	memory_space[i] = '\0';
+	return (memory_space);
 }
-
-
-char	*ft_strdup(char *src)
-{
-	char	*dup;
-	char	*sptr;
-	char	*dptr;
-
-	sptr = (char *)src;
-	while (*sptr++)
-		;
-	dup = malloc(sptr - src + 1);
-	if (!dup)
-		return (NULL);
-	dptr = dup;
-	while ((*dptr++ = *src++) != '\0')
-		;
-	return (dup);
-}
-*/
