@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:39:13 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/09 11:08:48 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/11 22:17:08 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 */
 
 #include "libft.h"
-
 
 char    *ft_strchr(const char *str, int character)
 {

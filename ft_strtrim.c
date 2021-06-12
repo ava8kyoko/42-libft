@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 16:10:48 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/11 16:17:39 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/11 22:29:17 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,16 @@
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *str, char const *set)
+char	*ft_strtrim(char const *str, char const *characters_totrim)
 {
 	char *memory_space;
-
-	memory_space = malloc(sizeof(char) * len);
-	if (!str)
+	size_t	len_str;
+	
+	if (!str || !characters_totrim)
 		return (NULL);
+	len_str = ft_strlen(str);
+	memory_space = malloc(sizeof(char) * len_str + 1);
 
+	*memory_space = ft_strnstr(str, characters_totrim, len_str);
 	return (memory_space);
 }
