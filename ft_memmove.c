@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:18:27 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/09 15:16:45 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/12 21:54:14 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	*ft_memmove(void *dest, const void *src, size_t size_tocopy)
     new_dest = (char *)dest;
 	new_src = (char *)src;
     if (!new_dest && !new_src)
-        return(0);
+		return(0);
 	while (size_tocopy--)
     {
         if (new_dest > new_src)

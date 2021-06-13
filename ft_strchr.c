@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:39:13 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/11 22:17:08 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/12 21:54:36 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,8 @@
 char    *ft_strchr(const char *str, int character)
 {
     while (*str && *str != character)
-        str++;
-	printf("%s\n", str);
-	printf("%s\n", str);
+		str++;
     if (*str == character)
-        return ((char *)str);
+		return ((char *)str);
 	return (NULL);
 }
