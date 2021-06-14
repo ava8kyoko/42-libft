@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:12:56 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/11 16:11:57 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/14 14:00:04 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ char	*ft_strnstr(const char *inside, const char *tofind, size_t len_tosearch);
 
 char	*ft_substr(char const *str, unsigned int start, size_t size_tocopy);
 char	*ft_strjoin(char const *str1, char const *str2);
-char	*ft_strtrim(char const *str, char const *set);
+char	*ft_strtrim(char const *str, char const *character_totrim);
+char 	**ft_split(char const *str, char charset);
 
 /*
 ** Fonctions bonus

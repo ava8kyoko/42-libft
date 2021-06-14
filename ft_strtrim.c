@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 16:10:48 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/12 22:07:51 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/14 12:19:25 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,34 +30,18 @@
 #include "libft.h"
 
 char	*ft_strtrim(char const *str, char const *characters_totrim)
-
 {
-	size_t		len;
 	char		*new_str;
+	size_t		len;
 
 	if (!str || !characters_totrim)
 		return (NULL);
+
 	while (*str && ft_strchr(characters_totrim, *str))
 		str++;
 	len = ft_strlen(str);
-	while (len && ft_strchr(characters_totrim, str[len]))
+	while (len && ft_strrchr(characters_totrim, str[len]))
 		len--;
-	new_str = ft_substr((char*)str, 0, len + 1);
+	new_str = ft_substr(str, 0, ++len);
 	return (new_str);
 }
-
-
-/*
-{
-	char *memory_space;
-	size_t	len_str;
-	
-	if (!str || !characters_totrim)
-		return (NULL);
-	len_str = ft_strlen(str);
-	memory_space = malloc(sizeof(char) * len_str + 1);
-
-	*memory_space = ft_strnstr(str, characters_totrim, len_str);
-	return (memory_space);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:44:48 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/09 11:35:59 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/14 12:27:26 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strrchr(const char *str, int character)
 	len = ft_strlen(str) + 1;
 	while (len--)
 	{
-		if (*(len + str) == character)
+		if (*(len + str) == (char)character)
 			return ((char *)(len + str));
 	}
 	return (NULL);
