@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:08:03 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/14 14:41:09 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/14 23:46:09 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,31 +119,124 @@ char				**ft_split(char const *str, char character)
 	return (tab);
 }
 */
-
+/*
 char	**ft_split(char const *str, char character)
 {
-	char	**tab;
-	//char	*new_str;
+	char			**tab;
+	char			*new_str;
+	char			*new_tabline;
 	unsigned int	start;
 	unsigned int	end;
 	unsigned int	len;
-	unsigned int	tab_line;
+	unsigned int	line;
 
 	if (!str || !character)
 		return (NULL);
-	i = 0;
-	k = 0;
+	start = 0;
+	end = 0;
 	line = 0;
-
-	while(str[start + end] && ft_strchr(str[end], character))
-		end++;
+	new_str = (char *)str;
+	printf("new_str: %s", new_str);
+	while(str)
+	{
+		if (ft_strchr(str, character))
+		{
+			tab[line] = ft_strdup(ft_substr(str, start, end - start));
+			line++;
+			start = end + 1;
+		}
+		else
+		{
+			str++;
+			end++;
+		}
+	}
 	//ft_strlcpy(new_str, str[start], end - start);
 	//start = end + 1;
 	//new_str[] = '\0';
-	len = end - start;
-	tab[line] = ft_substr(str, start, len);
+	//len = end - start;
+	//tab[line] = ft_substr(str, start, len);
 
 	return((char **)tab);
+}
+*/
+
+static	char			**free(char **str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		++i;
+	}
+	free(str);
+	return (NULL);
+}
+
+static unsigned int		count_word(char *s, char c)
+{
+	unsigned int count;
+
+	count = 0;
+	while (*s)
+	{
+		while (*s == c)
+			++s;
+		if (!*s)
+			break ;
+		while (*s && *s != c)
+			++s;
+		++count;
+	}
+	return (count);
+}
+
+static char				*slpit_word(char *start, int num)
+{
+	char	*ptr;
+	int		i;
+
+	ptr = (char *)malloc(sizeof(char) * (num + 1));
+	if (!ptr)
+		return (0);
+	i = 0;
+	while (i < num)
+	{
+		ptr[i] = start[i];
+		++i;
+	}
+	ptr[i] = 0;
+	return (ptr);
+}
+
+char					**ft_split(char const *str, char character)
+{
+	char			**tab;
+	char			*start;
+	unsigned int	len_line;
+	unsigned int	end;
+
+	if (!str)
+		return (0);
+	len_line = count_word((char *)str, character);
+	if (!(tab = malloc(sizeof(char **) * (len_line + 1))))
+		return (0);
+	end = 0;
+	while (end < len_line)
+	{
+		while (*str == character)
+			++str;
+		start = (char *)str;
+		while (*str != character && *str)
+			++str;
+		if (!(tab[end] = slpit_word(start, str - start)))
+			return (free(tab));
+		++end;
+	}
+	tab[end] = 0;
+	return (tab);
 }
 
 int		main(void)
