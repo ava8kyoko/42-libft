@@ -6,7 +6,7 @@
 /*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 14:08:03 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/14 23:46:09 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/16 07:34:13 by kyoko            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,26 @@ char	**ft_split(char const *str, char character)
 }
 */
 
-static	char			**free(char **str)
+static unsigned int		count_words(char *str, char character)
+{
+	unsigned int count;
+	unsigned int i;
+
+	count = 0;
+	i = 0;
+	{
+		while (str[i])
+		{
+			if ((str[i] == character && str[i + 1] != character) 
+				|| str[i + 1] == '\0')
+				count++;
+			i++;
+		}
+	}
+	return (count);
+}
+
+static	char			**free_malloc(char **str)
 {
 	int		i;
 
@@ -175,37 +194,21 @@ static	char			**free(char **str)
 	return (NULL);
 }
 
-static unsigned int		count_word(char *s, char c)
-{
-	unsigned int count;
 
-	count = 0;
-	while (*s)
-	{
-		while (*s == c)
-			++s;
-		if (!*s)
-			break ;
-		while (*s && *s != c)
-			++s;
-		++count;
-	}
-	return (count);
-}
 
 static char				*slpit_word(char *start, int num)
 {
 	char	*ptr;
 	int		i;
 
-	ptr = (char *)malloc(sizeof(char) * (num + 1));
+	ptr = malloc(sizeof(char) * (num + 1));
 	if (!ptr)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (i < num)
 	{
 		ptr[i] = start[i];
-		++i;
+		i++;
 	}
 	ptr[i] = 0;
 	return (ptr);
@@ -215,16 +218,14 @@ char					**ft_split(char const *str, char character)
 {
 	char			**tab;
 	char			*start;
-	unsigned int	len_line;
+	unsigned int	size_line;
 	unsigned int	end;
-
-	if (!str)
-		return (0);
-	len_line = count_word((char *)str, character);
-	if (!(tab = malloc(sizeof(char **) * (len_line + 1))))
-		return (0);
+	
+	size_line = count_words((char *)str, character);
+	if (!str || !(tab = malloc(sizeof(char) * (size_line + 1))))
+		return (NULL);
 	end = 0;
-	while (end < len_line)
+	while (end < size_line)
 	{
 		while (*str == character)
 			++str;
@@ -232,7 +233,7 @@ char					**ft_split(char const *str, char character)
 		while (*str != character && *str)
 			++str;
 		if (!(tab[end] = slpit_word(start, str - start)))
-			return (free(tab));
+			return (free_malloc(tab));
 		++end;
 	}
 	tab[end] = 0;
@@ -244,8 +245,8 @@ int		main(void)
 	int i = 0;
 	char **tab;
 
-	tab = ft_split("Salut super chaton!", ' ');
-	while (i < 3)
+	tab = ft_split("Salut.sup.er...chaton!", '.');
+	while (i < 4)
 	{
 		printf("tab %d: %s\n", i, tab[i]);
 		i++;
