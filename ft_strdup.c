@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:06:32 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/14 23:25:23 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/16 13:42:31 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char *ft_strdup(const char *src_tocopy)
 	size_t	len;
 
 	len = ft_strlen(src_tocopy);
-	memory_space = malloc(sizeof(char *) * len + 1);
+	memory_space = malloc(sizeof(char) * len + 1);
 	i = 0;
 	if (!memory_space)
 		return (NULL);
