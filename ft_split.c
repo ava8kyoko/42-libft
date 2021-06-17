@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:20:27 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/16 16:05:44 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/17 15:25:31 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,11 @@ char					**ft_split(char const *str, char separator)
 	if (!str)
 		return (NULL);
 	size_word = count_words((char *)str, separator);
-	tab = malloc(sizeof(char *) * (size_word + 1));
-	if (!tab)
+	if (!(tab = malloc(sizeof(char *) * (size_word + 1))))
 		return (NULL);
 	return (put_words_inTab(tab, (char *)str, separator, size_word));
 }
+
 
 /*
 int		main(void)
@@ -122,12 +122,12 @@ int		main(void)
 	int i = 0;
 	char **tab;
 
-	tab = ft_split("split  ||this|for|me|||||!|", '|');
-	while (i < 4)
-	{
+	tab = ft_split("", '|');
+	//while (i < 4)
+	//{
 		printf("tab %d: %s\n", i, tab[i]);
-		i++;
-	}
+		//i++;
+	//}
 
 	return (0);
 }
