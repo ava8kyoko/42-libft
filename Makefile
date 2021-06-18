@@ -6,7 +6,7 @@
 #    By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 09:53:46 by mchampag          #+#    #+#              #
-#    Updated: 2021/06/17 13:16:24 by mchampag         ###   ########.fr        #
+#    Updated: 2021/06/18 15:42:13 by mchampag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ SRCS =		ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c\
 			ft_memmove.c ft_bzero.c\
 			ft_calloc.c ft_strdup.c\
 			ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c\
+			ft_strmapi.c\
+			ft_putchar_fd.c ft_putstr_fd.c\
 
 OBJS = 		$(SRCS:.c=.o)
 

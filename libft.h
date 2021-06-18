@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:12:56 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/17 15:05:52 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/18 15:42:24 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ char	*ft_strjoin(char const *str1, char const *str2);
 char	*ft_strtrim(char const *str, char const *character_totrim);
 char 	**ft_split(char const *str, char separator);
 char	*ft_itoa(int number);
+char	*ft_strmapi(char const *str_toIterate, char (*f)(unsigned int, char));
+void 	ft_putchar_fd(char character, int fd);
+void	ft_putstr_fd(char *str, int fd);
 
 /*
 ** Fonctions bonus
