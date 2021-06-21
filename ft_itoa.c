@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 13:16:10 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/18 15:00:32 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/21 14:57:00 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@
 
 #include "libft.h"
 
-int		size_number(number)
+int	size_number(int number)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (number == 0)
@@ -49,7 +49,7 @@ int		size_number(number)
 	return (i);
 }
 
-char	*converted_number(char *str, int number, int size)
+char	*convert_number(char *str, int number, int size)
 {
 	str[size] = '\0';
 	if (number == 0)
@@ -79,24 +79,8 @@ char	*ft_itoa(int number)
 		return (str);
 	}
 	size = size_number(number);
-	if (!(str = malloc(sizeof(char) * size + 1)))
+	str = malloc(sizeof(char) * size + 1);
+	if (!str)
 		return (NULL);
-	return (converted_number(str, number, size));
+	return (convert_number(str, number, size));
 }
-
-// int main(int argc, char **argv)
-// {
-//   printf("Main de test : ft_itoa\n");
-//   printf("Test parametres basiques (Entier positif)\n");
-//   printf("%s\n\n", ft_itoa(2543));
-
-//   printf("(Entier negatif)\n");
-//   printf("%s\n\n", ft_itoa(-254));
-
-//   printf("(Entier = 0)\n");
-//   printf("%s\n\n", ft_itoa(0));
-
-// 	printf("(Entier = -2147483648)\n");
-// 	printf("%s\n\n", ft_itoa(-2147483648));
-//   return (0);
-// }

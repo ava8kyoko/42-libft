@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/18 15:34:38 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/21 11:23:34 by mchampag         ###   ########.fr       */
+/*   Created: 2021/06/21 11:24:31 by mchampag          #+#    #+#             */
+/*   Updated: 2021/06/21 15:01:55 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** PARAMÈTRES
-** 	#1. Le caractère à écrire.
+** 	#1. L’integer à écrire.
 ** 	#2. Le file descriptor sur lequel écrire.
 **
 ** VALEUR DE RETOUR
 ** 	None
 **
 ** FONCTION EXTERNE AUTORISÉE
-** write
+** 	write
 **
 ** DESCRIPTION
-** 	Écrit le caractère ’c’ sur le file descriptor donné.
+** 	Écrit l’integer ’n’ sur le file descriptor donné.
 */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *str, int fd)
+void	ft_putnbr_fd(int number, int fd)
 {
-	if (!str)
-		return ;
-	if (!*str)
-		write(fd, "\0", 1);
-	write(fd, str, ft_strlen(str));
+	if (number == -2147483647 - 1)
+		ft_putstr_fd("-2147483648", fd);
+	if (number < 0)
+	{
+		ft_putchar_fd('-', fd);
+		number *= -1;
+	}
+	if (number > 9)
+		ft_putnbr_fd(number / 10, fd);
+	ft_putchar_fd(number % 10 + '0', fd);
 }

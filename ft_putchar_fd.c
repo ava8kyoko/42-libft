@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 15:01:43 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/18 15:29:54 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/21 14:50:57 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,3 @@ void	ft_putchar_fd(char character, int fd)
 {
 	write(fd, &character, 1);
 }
-
-
-// int	main(void)
-// {
-// 	char c = 'A';
-
-// 	ft_putchar_fd(c, 1);
-
-// 	return (0);
-// }
-

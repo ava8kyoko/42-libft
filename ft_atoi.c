@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 11:25:00 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/11 15:59:06 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/21 14:47:11 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	long	sign;
 	long	converted;

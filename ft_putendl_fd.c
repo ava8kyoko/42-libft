@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/18 15:34:38 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/21 11:23:34 by mchampag         ###   ########.fr       */
+/*   Created: 2021/06/21 10:55:14 by mchampag          #+#    #+#             */
+/*   Updated: 2021/06/21 11:23:17 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** PARAMÈTRES
-** 	#1. Le caractère à écrire.
+** 	#1. La chaine de caractères à écrire.
 ** 	#2. Le file descriptor sur lequel écrire.
 **
 ** VALEUR DE RETOUR
 ** 	None
 **
 ** FONCTION EXTERNE AUTORISÉE
-** write
+** 	write
 **
 ** DESCRIPTION
-** 	Écrit le caractère ’c’ sur le file descriptor donné.
+** 	Écrit La chaine de caractères ’s’ sur le file
+** 	descriptor donné, suivie d’un retour à la ligne.
 */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *str, int fd)
+void 	ft_putendl_fd(char *str, int fd)
 {
 	if (!str)
 		return ;
-	if (!*str)
-		write(fd, "\0", 1);
-	write(fd, str, ft_strlen(str));
+	ft_putstr_fd(str, fd);
+	ft_putchar_fd('\n', fd);
 }

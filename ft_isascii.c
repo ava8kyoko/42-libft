@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoko <kyoko@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:56:27 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/06 23:00:24 by kyoko            ###   ########.fr       */
+/*   Updated: 2021/06/21 14:53:38 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@
 
 #include "libft.h"
 
-int		ft_isascii(int character)
+int	ft_isascii(int character)
 {
 	if (0 <= character && character <= 127)
-		return(1);
+		return (1);
 	return (0);
 }

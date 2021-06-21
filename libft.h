@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:12:56 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/18 15:42:24 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/21 13:16:52 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@
 
 typedef struct s_list
 {
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
+void *content;
+struct s_list *next;
+} t_list;
 
 /*
 ** Fonctions de la Libc
@@ -61,18 +60,24 @@ char	*ft_strnstr(const char *inside, const char *tofind, size_t len_tosearch);
 ** Fonctions supplémentaire
 */
 
-char	*ft_substr(char const *str, unsigned int start, size_t size_tocopy);
-char	*ft_strjoin(char const *str1, char const *str2);
-char	*ft_strtrim(char const *str, char const *character_totrim);
-char 	**ft_split(char const *str, char separator);
 char	*ft_itoa(int number);
-char	*ft_strmapi(char const *str_toIterate, char (*f)(unsigned int, char));
+
 void 	ft_putchar_fd(char character, int fd);
+void 	ft_putendl_fd(char *str, int fd);
+void	ft_putnbr_fd(int number, int fd);
 void	ft_putstr_fd(char *str, int fd);
+
+char	*ft_strjoin(char const *str1, char const *str2);
+char	*ft_strmapi(char const *str_toIterate, char (*f)(unsigned int, char));
+char	*ft_strtrim(char const *str, char const *character_totrim);
+
+char 	**ft_split(char const *str, char separator);
+char	*ft_substr(char const *str, unsigned int start, size_t size_tocopy);
 
 /*
 ** Fonctions bonus
 */
+
 
 /*
 ** Fonctions extra

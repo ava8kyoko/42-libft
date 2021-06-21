@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:31:46 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/09 10:29:55 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/21 14:58:49 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 
 #include "libft.h"
 
-int		ft_memcmp(const void *str1, const void *str2, size_t size_tocompare)
+int	ft_memcmp(const void *str1, const void *str2, size_t size_tocompare)
 {
 	unsigned char	*new_str1;
 	unsigned char	*new_str2;
