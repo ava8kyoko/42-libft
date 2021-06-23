@@ -6,27 +6,38 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:12:56 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/21 13:16:52 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/23 14:43:24 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdio.h>
+# include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
+
+/*
+** Information concernant la structure des bonus
+**
+** content: La donnée contenue dans le maillon. Le void * permet de stocker
+** 	une donnée de n’importe quel type.
+**
+** next : L’adresse du maillon suivant de la liste ou NULL si le maillon est
+** 	le dernier.
+*/
 
 typedef struct s_list
 {
-void *content;
-struct s_list *next;
-} t_list;
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 /*
 ** Fonctions de la Libc
 */
+
 int		ft_isalpha(int character);
 int		ft_isdigit(int character);
 int		ft_isalnum(int character);
@@ -49,12 +60,13 @@ void	*ft_memset(void *str, int character, size_t len_tofill);
 
 char	*ft_strchr(const char *str, int character);
 char	*ft_strrchr(const char *str, int character);
-char 	*ft_strdup(const char *src_tocopy);
+char	*ft_strdup(const char *src_tocopy);
 size_t	ft_strlcat(char *dst, const char *src, size_t size_dst);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size_tocopy);
 size_t	ft_strlen(const char *str);
 int		ft_strncmp(const char *str1, const char *str2, size_t len_tocompare);
-char	*ft_strnstr(const char *inside, const char *tofind, size_t len_tosearch);
+char	*ft_strnstr(const char *inside, const char *tofind, size_t
+			len_tosearch);
 
 /*
 ** Fonctions supplémentaire
@@ -62,8 +74,8 @@ char	*ft_strnstr(const char *inside, const char *tofind, size_t len_tosearch);
 
 char	*ft_itoa(int number);
 
-void 	ft_putchar_fd(char character, int fd);
-void 	ft_putendl_fd(char *str, int fd);
+void	ft_putchar_fd(char character, int fd);
+void	ft_putendl_fd(char *str, int fd);
 void	ft_putnbr_fd(int number, int fd);
 void	ft_putstr_fd(char *str, int fd);
 
@@ -71,13 +83,22 @@ char	*ft_strjoin(char const *str1, char const *str2);
 char	*ft_strmapi(char const *str_toIterate, char (*f)(unsigned int, char));
 char	*ft_strtrim(char const *str, char const *character_totrim);
 
-char 	**ft_split(char const *str, char separator);
+char	**ft_split(char const *str, char separator);
 char	*ft_substr(char const *str, unsigned int start, size_t size_tocopy);
 
 /*
 ** Fonctions bonus
 */
 
+void	ft_lstadd_back(t_list **alst, t_list *new);
+void	ft_lstadd_front(t_list **alst, t_list *new);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int		ft_lstsize(t_list *lst);
 
 /*
 ** Fonctions extra

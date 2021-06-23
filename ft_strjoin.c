@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:10:24 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/17 15:29:05 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/23 13:56:16 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,18 @@
 
 #include "libft.h"
 
-char *ft_strjoin(char const *str1, char const *str2)
+char	*ft_strjoin(char const *str1, char const *str2)
 {
 	char	*memory_space;
-	size_t	len_str1;
-	size_t	len_str2;
+	size_t	len;
 
 	if (!str1 || !str2)
 		return (NULL);
-	len_str1 = ft_strlen(str1);
-	len_str2 = ft_strlen(str2);
-	memory_space = malloc(sizeof(char) * (len_str1 + len_str2 + 1));
+	len = ft_strlen(str1) + ft_strlen(str2 + 1);
+	memory_space = malloc(len);
 	if (!memory_space)
 		return (NULL);
-	ft_memcpy(memory_space, str1, len_str1);
-	ft_memcpy((memory_space + len_str1), str2, (len_str1 + len_str2 + 1));
+	ft_strlcpy(memory_space, str1, len);
+	ft_strlcat(memory_space, str2, len);
 	return (memory_space);
 }

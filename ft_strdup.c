@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 13:06:32 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/18 15:00:57 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/23 10:16:39 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,18 @@
 
 #include "libft.h"
 
-char *ft_strdup(const char *src_tocopy)
+char	*ft_strdup(const char *src_tocopy)
 {
 	char	*memory_space;
 	size_t	i;
 	size_t	len;
 
 	len = ft_strlen(src_tocopy);
-	if (!(memory_space = malloc(sizeof(char) * len + 1)))
+	memory_space = malloc(sizeof(char) * len + 1);
+	if (!memory_space)
 		return (NULL);
 	i = 0;
-	while(src_tocopy[i] != '\0' && len--)
+	while (src_tocopy[i] != '\0' && len--)
 	{
 		memory_space[i] = src_tocopy[i];
 		i++;

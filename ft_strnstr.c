@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 11:19:26 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/09 11:34:22 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/23 12:26:36 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 ** 	portability is not a concern.
 **
 ** PARAMÈTRES
-** 	s1  The string to be searched
-** 	s2  The string to search for
-** 	len : the maximum number of characters to search
+** 	s1 : Chaine dans laquelle chercher
+** 	s2 : Chaine à chercher
+** 	len : Nombre maximum de charactères à chercher
 **
 ** RETURN VALUES
 **  If s2 (needle) is an empty string, s1 (haystack) is returned; if
@@ -33,27 +33,25 @@
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *inside, const char *tofind, size_t len_tosearch)
+char	*ft_strnstr(const char *inside, const char *tofind,
+			size_t len_tosearch)
 {
-	char	*found;
-	size_t	ptr;
+	size_t	start;
 	size_t	i;
-	size_t	len_tofind;
 
-	found = (char *)inside;
-	ptr = 0;
-	len_tofind = ft_strlen(tofind);
-	if (!*tofind || inside == tofind)
-		return (found);
-	while (found[ptr] != '\0' && len_tosearch--)
+	start = 0;
+	if (*tofind == 0)
+		return ((char *) inside);
+	while (inside[start] != '\0' && start < len_tosearch)
 	{
 		i = 0;
-		while (found[ptr + i] != '\0' && tofind[i] != '\0'
-			&& found[ptr + i] == tofind[i] && ptr + len_tosearch--)
+		while (inside[start + i] == tofind[i] && start + i < len_tosearch)
+		{
+			if (tofind[i + 1] == 0)
+				return ((char *)&inside[start]);
 			i++;
-		if (i == len_tofind)
-			return (found + ptr);
-		ptr++;
+		}
+		start++;
 	}
 	return (NULL);
 }

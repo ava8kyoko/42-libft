@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 16:10:48 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/14 12:19:25 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/23 10:27:37 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	*ft_strtrim(char const *str, char const *characters_totrim)
 
 	if (!str || !characters_totrim)
 		return (NULL);
-
 	while (*str && ft_strchr(characters_totrim, *str))
 		str++;
 	len = ft_strlen(str);

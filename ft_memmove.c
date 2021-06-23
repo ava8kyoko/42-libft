@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:18:27 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/21 15:00:46 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/23 10:40:38 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void	*ft_memmove(void *dest, const void *src, size_t size_tocopy)
 	{
 		if (new_dest > new_src)
 			new_dest[size_tocopy] = new_src[size_tocopy];
-		*new_dest++ = *new_src++;
+		else
+			*new_dest++ = *new_src++;
 	}
 	return (dest);
 }

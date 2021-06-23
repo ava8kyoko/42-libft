@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 15:34:38 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/21 11:23:34 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/23 12:30:48 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,5 @@ void	ft_putstr_fd(char *str, int fd)
 {
 	if (!str)
 		return ;
-	if (!*str)
-		write(fd, "\0", 1);
 	write(fd, str, ft_strlen(str));
 }

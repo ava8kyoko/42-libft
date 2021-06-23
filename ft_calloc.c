@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 11:40:20 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/09 14:47:08 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/23 10:33:58 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,11 @@
 
 void	*ft_calloc(size_t number_element, size_t size_element)
 {
-	char	*allocatedArea;
+	char	*allocated_area;
 
-	if (!(allocatedArea = malloc(number_element * size_element)))
+	allocated_area = malloc(number_element * size_element);
+	if (!allocated_area)
 		return (NULL);
-	ft_memset(allocatedArea, 0, (number_element * size_element));
-	return (allocatedArea);
+	ft_memset(allocated_area, 0, (number_element * size_element));
+	return (allocated_area);
 }

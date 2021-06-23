@@ -6,19 +6,13 @@
 #    By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 09:53:46 by mchampag          #+#    #+#              #
-#    Updated: 2021/06/21 11:28:19 by mchampag         ###   ########.fr        #
+#    Updated: 2021/06/23 16:33:18 by mchampag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		libft.a
 
-CC =		gcc
-
-CFLAGS = 	-Wall -Wextra -Werror
-
-# TARGET =
-
-# SRCS = 		$(wildcard *.c)
+HEADER =	libft.h
 
 SRCS =		ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c\
 			ft_tolower.c ft_toupper.c\
@@ -32,26 +26,33 @@ SRCS =		ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c\
 			ft_strmapi.c\
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c\
 
-OBJS = 		$(SRCS:.c=.o)
+BONUS =		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c\
+
+OBJS = $(SRCS:.c=.o)
+
+BONUS_OBJS = $(BONUS:.c=.o)
+
+CC = gcc
+
+CFLAGS = -Wall -Werror -Wextra
+
+RM = rm -f
 
 $(NAME): $(OBJS)
-		ar rcs $(NAME) $(OBJS)
-# ranlib $(NAME)
+		ar -rc $(NAME) $(OBJS)
+		ranlib $(NAME)
 
-# %.o: %.c
-
-# $(CC) -I. -o $@ -c $? $(CFLAGS)
+bonus : $(OBJS) $(BONUS_OBJS)
+		ar -rc $(NAME) $(OBJ) $(BONUS_OBJS)
 
 all: $(NAME)
 
 clean:
-	rm -f $(OBJS)
-
-allclean: all clean
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: clean fclean all re
+.PHONY: all clean fclean re bonus

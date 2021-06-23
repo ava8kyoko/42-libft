@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:20:51 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/11 16:10:24 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/23 13:49:05 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,18 @@ char	*ft_substr(char const *str, unsigned int start, size_t size_tocopy)
 {
 	char			*memory_space;
 	size_t			i;
-	unsigned int	len_s;
 
 	if (!str)
 		return (NULL);
-	memory_space = malloc(sizeof(char) * (size_tocopy + 1));
+	memory_space = (char *)malloc(sizeof(char) * (ft_strlen(str)));
 	if (!memory_space)
-		return(NULL);
-	len_s = (unsigned int)ft_strlen(str);
+		return (NULL);
 	i = 0;
-	while (str[start] != '\0' && start <= len_s && size_tocopy--)
+	while (size_tocopy-- && start + i < ft_strlen(str))
 	{
-		memory_space[i] = str[start];
+		memory_space[i] = str[start + i];
 		i++;
-		start++;
 	}
 	memory_space[i] = '\0';
-	return(memory_space);
+	return (memory_space);
 }
