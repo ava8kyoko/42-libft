@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 16:31:33 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 12:43:01 by mchampag         ###   ########.fr       */
+/*   Created: 2021/06/24 14:42:08 by mchampag          #+#    #+#             */
+/*   Updated: 2021/06/24 15:05:43 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** PARAMÈTRES
-** 	#1. Le début de la liste.
+** 	#1. L’élement à free
+** 	#2. L’adresse de la fonction permettant de supprimer le contenu de
+** 		l’élement.
 **
 ** VALEUR DE RETOUR
-** 	Taille de la liste.
-**
-** FONCTIONS AUTORISÉES
 ** 	None
 **
+** FONCTIONS EXTERNES AUTORISÉES
+** 	free
+**
 ** DESCRIPTION
-** 	Compte le nombre d’éléments de la liste.
+** 	Libère la mémoire de l’élément passé en argument en utilisant
+** 	la fonction del puis avec free(3). La mémoire de next ne doit pas être
+** 	free.
 */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *list)
+void	ft_lstdelone(t_list *list, void (*delete)(void *))
 {
-	int count;
-
-	count = 0;
-
-	while (list)
-	{
-		list = list->next;
-		count++;
-	}
-	return (count);
+	if (!list || !delete)
+		return ;
+	delete (list->content);
+	free (list);
 }

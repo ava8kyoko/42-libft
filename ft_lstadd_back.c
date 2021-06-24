@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 16:31:33 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 12:43:01 by mchampag         ###   ########.fr       */
+/*   Created: 2021/06/24 15:32:20 by mchampag          #+#    #+#             */
+/*   Updated: 2021/06/24 15:32:24 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** PARAMÈTRES
-** 	#1. Le début de la liste.
+** 	#1. L’adresse du pointeur vers le premier élément de la liste.
+** 	#2. L’adresse du pointeur vers l’élément à rajouter	à la liste.
 **
 ** VALEUR DE RETOUR
-** 	Taille de la liste.
+** 	None
 **
-** FONCTIONS AUTORISÉES
+** FONCTIONS EXTERNES AUTORISÉES
 ** 	None
 **
 ** DESCRIPTION
-** 	Compte le nombre d’éléments de la liste.
+** 	Ajoute l’élément new à la fin de la liste.
 */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *list)
+void	ft_lstadd_back(t_list **alist, t_list *new)
 {
-	int count;
+	t_list	*last_list;
 
-	count = 0;
-
-	while (list)
+	if (!*alist)
 	{
-		list = list->next;
-		count++;
+		last_list = ft_lstlast(*alist);
+		last_list->next = new;
 	}
-	return (count);
+	*alist = new;
 }
