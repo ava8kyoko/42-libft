@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 15:48:55 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 16:47:41 by mchampag         ###   ########.fr       */
+/*   Created: 2021/06/24 16:56:22 by mchampag          #+#    #+#             */
+/*   Updated: 2021/06/24 16:57:48 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** PARAMÈTRES
-** 	#1. L’adresse du pointeur vers le premier élément de la liste.
-** 	#2. L’adresse du pointeur vers l’élément à rajouter	à la liste.
+** 	#1 L’adresse du pointeur vers un élément.
+** 	#2. L’adresse de la fonction à appliquer.
 **
 ** VALEUR DE RETOUR
 ** 	None
@@ -22,26 +22,11 @@
 ** 	None
 **
 ** DESCRIPTION
-** 	Ajoute l’élément new à la fin de la liste.
+** 	Itère sur la list lst et applique la fonction f au contenu chaque
+** 	élément.
 */
 
-#include "libft.h"
-
-void	ft_lstadd_back(t_list **alist, t_list *new)
+void ft_lstiter(t_list *list, void (*fonction)(void *))
 {
-	t_list	*last_list;
-
-	if (alist)
-	{
-		if (*alist == NULL)
-			*alist = new;
-		else
-		{
-			last_list = ft_lstlast(*alist);
-			last_list->next = new;
-		}
-
-	}
+	
 }
-
-

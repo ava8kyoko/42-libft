@@ -6,7 +6,7 @@
 #    By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 09:53:46 by mchampag          #+#    #+#              #
-#    Updated: 2021/06/24 15:23:08 by mchampag         ###   ########.fr        #
+#    Updated: 2021/06/24 16:44:08 by mchampag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS =		ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c\
 OBJS =		$(SRCS:.c=.o)
 
 BONUS =		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
-			ft_lstadd_back.c ft_lstdelone.c\
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c\
 
 BONUS_OBJS = $(BONUS:.c=.o)
 
@@ -37,7 +37,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-AR = ar rcs
+AR = ar -rc
 
 RM = rm -f
 
@@ -45,12 +45,13 @@ $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 	ranlib $(NAME)
 
+.c.o:
+	$(CC) $(CFLAGS) -c -I $(HEADER) $< -o ${<:.c=.o}
+
 all: $(NAME)
 
-bonus: $(BONUS_OBJS)
-
-#bonus: $(OBJS)
-#$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus : $(OBJS) $(BONUS_OBJS)
+	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)

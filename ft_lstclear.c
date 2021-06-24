@@ -1,47 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 15:48:55 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 16:47:41 by mchampag         ###   ########.fr       */
+/*   Created: 2021/06/24 16:34:11 by mchampag          #+#    #+#             */
+/*   Updated: 2021/06/24 16:54:17 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** PARAMÈTRES
-** 	#1. L’adresse du pointeur vers le premier élément de la liste.
-** 	#2. L’adresse du pointeur vers l’élément à rajouter	à la liste.
+** 	#1. L’adresse du pointeur vers un élément.
+** 	#2. L’adresse de la fonction permettant de supprimer le contenu
+** 		d’un élément.
 **
 ** VALEUR DE RETOUR
 ** 	None
 **
 ** FONCTIONS EXTERNES AUTORISÉES
-** 	None
+** 	free
 **
 ** DESCRIPTION
-** 	Ajoute l’élément new à la fin de la liste.
+** 	Supprime et libère la mémoire de l’élément passé en paramètre,
+** 	et de tous les élements qui suivent, à l’aide de del et de free(3)
+** 	Enfin, le pointeur initial doit être mis à NULL.
 */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **alist, t_list *new)
+void	ft_lstclear(t_list **list, void (*delete)(void *))
 {
-	t_list	*last_list;
+	t_list	*temp_list;
 
-	if (alist)
+	if (list)
 	{
-		if (*alist == NULL)
-			*alist = new;
-		else
+		while (*list)
 		{
-			last_list = ft_lstlast(*alist);
-			last_list->next = new;
+			temp_list = *list;
+			ft_lstdelone(*list, delete);
+			*list = temp_list->next;
 		}
-
 	}
 }
-
-
