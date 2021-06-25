@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 16:31:33 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 12:43:01 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/25 15:56:41 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@
 
 int	ft_lstsize(t_list *list)
 {
-	int count;
+	int	count;
 
 	count = 0;
-
 	while (list)
 	{
 		list = list->next;

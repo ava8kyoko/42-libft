@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:12:56 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 15:04:23 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/25 14:21:07 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,12 @@ char	*ft_substr(char const *str, unsigned int start, size_t size_tocopy);
 
 void	ft_lstadd_back(t_list **alist, t_list *new);
 void	ft_lstadd_front(t_list **alist, t_list *new);
-void	ft_lstclear(t_list **list, void (*delete)(void *));
-void	ft_lstdelone(t_list *list, void (*delete)(void *));
-void	ft_lstiter(t_list *list, void (*fonction)(void *));
+void	ft_lstclear(t_list **list, void (*del)(void *));
+void	ft_lstdelone(t_list *list, void (*del)(void *));
+void	ft_lstiter(t_list *list, void (*f)(void *));
 t_list	*ft_lstlast(t_list *list);
 t_list	*ft_lstnew(void *content);
-t_list	*ft_lstmap(t_list *list, void *(*fonction)(void *), void (*delete)(void *));
+t_list	*ft_lstmap(t_list *list, void *(*f)(void *), void (*del)(void *));
 int		ft_lstsize(t_list *list);
 
 /*

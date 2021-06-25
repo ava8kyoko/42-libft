@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:34:11 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 16:54:17 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/25 14:22:08 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **list, void (*delete)(void *))
+void	ft_lstclear(t_list **list, void (*del)(void *))
 {
 	t_list	*temp_list;
 
@@ -39,7 +39,7 @@ void	ft_lstclear(t_list **list, void (*delete)(void *))
 		while (*list)
 		{
 			temp_list = *list;
-			ft_lstdelone(*list, delete);
+			ft_lstdelone(*list, del);
 			*list = temp_list->next;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:20:27 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/23 14:13:12 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/25 16:00:25 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 #include "libft.h"
 
-char	**malloc_error(char **tab)
+static char	**malloc_error(char **tab)
 {
 	size_t	i;
 
@@ -45,7 +45,7 @@ char	**malloc_error(char **tab)
 	return (NULL);
 }
 
-char	*put_characters_inArray(char *beginning_word, size_t len_word)
+static char	*put_characters_Array(char *start_word, size_t len_word)
 {
 	char	*case_array;
 	size_t	i;
@@ -56,17 +56,17 @@ char	*put_characters_inArray(char *beginning_word, size_t len_word)
 	i = 0;
 	while (len_word--)
 	{
-		case_array[i] = beginning_word[i];
+		case_array[i] = start_word[i];
 		i++;
 	}
-	case_array[i] = 0;
+	case_array[i] = '\0';
 	return (case_array);
 }
 
-char	**put_words_inTab(char **tab, char *str, char separator,
+static char	**put_words_Tab(char **tab, char *str, char separator,
 							size_t size_word)
 {
-	char			*array_beginning;
+	char			*start_array;
 	size_t			i;
 
 	i = 0;
@@ -74,10 +74,10 @@ char	**put_words_inTab(char **tab, char *str, char separator,
 	{
 		while (*str == separator)
 			str++;
-		array_beginning = (char *)str;
-		while (*str != separator)
+		start_array = (char *)str;
+		while (*str && *str != separator)
 			str++;
-		tab[i] = put_characters_inArray(array_beginning, str - array_beginning);
+		tab[i] = put_characters_Array(start_array, str - start_array);
 		if (!tab[i])
 			return (malloc_error(tab));
 		i++;
@@ -86,19 +86,19 @@ char	**put_words_inTab(char **tab, char *str, char separator,
 	return (tab);
 }
 
-size_t	count_words(char *s, char c)
+static size_t	count_words(char *str, char character)
 {
 	size_t	count;
 
 	count = 0;
-	while (*s)
+	while (*str)
 	{
-		while (*s == c)
-			s++;
-		if (!*s)
+		while (*str == character)
+			str++;
+		if (!*str)
 			break ;
-		while (*s != c)
-			s++;
+		while (*str && *str != character)
+			str++;
 		count++;
 	}
 	return (count);
@@ -115,5 +115,5 @@ char	**ft_split(char const *str, char separator)
 	tab = malloc(sizeof(char *) * (size_word + 1));
 	if (!tab)
 		return (NULL);
-	return (put_words_inTab(tab, (char *)str, separator, size_word));
+	return (put_words_Tab(tab, (char *)str, separator, size_word));
 }

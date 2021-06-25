@@ -6,7 +6,7 @@
 #    By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 09:53:46 by mchampag          #+#    #+#              #
-#    Updated: 2021/06/24 16:44:08 by mchampag         ###   ########.fr        #
+#    Updated: 2021/06/25 12:10:14 by mchampag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRCS =		ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c\
 OBJS =		$(SRCS:.c=.o)
 
 BONUS =		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
-			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c\
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c\
+			ft_lstmap.c\
 
 BONUS_OBJS = $(BONUS:.c=.o)
 
@@ -41,8 +42,8 @@ AR = ar -rc
 
 RM = rm -f
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(BONUS_OBJS)
+	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 	ranlib $(NAME)
 
 .c.o:

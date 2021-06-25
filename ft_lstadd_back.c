@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:48:55 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 16:47:41 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/25 15:59:11 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,5 @@ void	ft_lstadd_back(t_list **alist, t_list *new)
 			last_list = ft_lstlast(*alist);
 			last_list->next = new;
 		}
-
 	}
 }
-
-

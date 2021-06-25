@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:10:24 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 14:16:50 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/25 14:32:52 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ char	*ft_strjoin(char const *str1, char const *str2)
 	if (!memory_space)
 		return (NULL);
 	ft_memcpy(memory_space, str1, len_str1);
-	ft_memcpy((memory_space + len_str1), str2, (len_str1 + len_str2 + 1));
+	ft_memcpy((memory_space + len_str1), str2, (len_str2 + 1));
 	return (memory_space);
 }

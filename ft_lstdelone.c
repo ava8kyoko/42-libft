@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 14:42:08 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 15:05:43 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/25 14:21:44 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *list, void (*delete)(void *))
+void	ft_lstdelone(t_list *list, void (*del)(void *))
 {
-	if (!list || !delete)
+	if (!list || !del)
 		return ;
-	delete (list->content);
+	del (list->content);
 	free (list);
 }

@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:45:32 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/23 15:40:06 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/25 15:57:32 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_list	*ft_lstnew(void *content)
 	t_list	*new_element;
 
 	new_element = NULL;
-	new_element = malloc(sizeof(*new_element));
+	new_element = malloc(sizeof(t_list));
 	if (!new_element)
 		return (NULL);
 	new_element->content = content;

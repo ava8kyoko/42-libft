@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:56:22 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 16:57:48 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/25 15:58:30 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,13 @@
 ** 	élément.
 */
 
-void ft_lstiter(t_list *list, void (*fonction)(void *))
+#include "libft.h"
+
+void	ft_lstiter(t_list *list, void (*f)(void *))
 {
-	
+	while (list)
+	{
+		f(list->content);
+		list = list->next;
+	}
 }

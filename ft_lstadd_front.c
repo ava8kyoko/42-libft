@@ -6,7 +6,7 @@
 /*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 16:20:23 by mchampag          #+#    #+#             */
-/*   Updated: 2021/06/24 12:49:16 by mchampag         ###   ########.fr       */
+/*   Updated: 2021/06/25 15:57:19 by mchampag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@
 
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-		new->next = *alst;
-		*alst = new;
+	new->next = *alst;
+	*alst = new;
 }
