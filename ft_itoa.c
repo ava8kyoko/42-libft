@@ -38,7 +38,7 @@ int	size_number(int number)
 		return (1);
 	if (number < 0 && size++)
 		number *= -1;
-	while (number > 0)
+	while (number > 0 && size++)
 		number /= 10;
 	return (size);
 }
