@@ -31,22 +31,16 @@
 
 int	size_number(int number)
 {
-	int	i;
+	int	size;
 
-	i = 0;
+	size = 0;
 	if (number == 0)
 		return (1);
-	if (number < 0)
-	{
+	if (number < 0 && size++)
 		number *= -1;
-		i++;
-	}
 	while (number > 0)
-	{
 		number /= 10;
-		i++;
-	}
-	return (i);
+	return (size);
 }
 
 char	*convert_number(char *str, int number, int size)
