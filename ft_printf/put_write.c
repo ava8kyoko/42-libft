@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   put_write.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mchampag <mchampag@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acid.burn <acid.burn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 10:24:37 by mchampag          #+#    #+#             */
-/*   Updated: 2021/11/16 10:41:35 by mchampag         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:11:08 by acid.burn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+// #include "../ft_printf.h"
 
 int	ft_putchar(char c)
 {
